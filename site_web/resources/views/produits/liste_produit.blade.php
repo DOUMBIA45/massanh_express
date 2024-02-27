@@ -4,149 +4,253 @@
 @endsection
 
 @section('content')
+    <style>
+        body {
+            background-color: #eee
+        }
+        .t-products {
+            background-image: linear-gradient(to right top, #13357b, #5625cb, #13357b, #551ae0, #13357b);
+            color: #fff;
+            border-radius: 3px
+        }
+
+        .processor {
+            background-color: #fff;
+            margin-top: 5px;
+            border-bottom: 1px solid #eee
+        }
+
+        .brand {
+            background-color: #fff;
+            border-bottom: 1px solid #eee
+        }
+
+        .type {
+            background-color: #fff
+        }
+
+        .product {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            position: relative
+        }
+
+        .about span {
+            color: #13357b;
+            font-size: 16px
+        }
+
+        .cart-button button {
+            font-size: 12px;
+            color: #fff;
+            background-color: #13357b;
+            height: 38px
+        }
+
+        .cart-button button:focus,
+        button:active {
+            font-size: 12px;
+            color: #fff;
+            background-color: #13357b;
+            box-shadow: none
+        }
+
+        .product_fav i {
+            line-height: 40px;
+            color: #13357b;
+            font-size: 15px
+        }
+
+        .product_fav {
+            display: inline-block;
+            width: 36px;
+            height: 39px;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 11%;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 3px;
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -ms-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 200ms ease
+        }
+
+        .product_fav:hover {
+            background: #13357b
+        }
+
+        .product_fav:hover i {
+            color: #fff
+        }
+
+        .about {
+            margin-top: 12px
+        }
+
+        .off {
+            position: absolute;
+            left: 65%;
+            top: 6%;
+            width: 80px;
+            text-align: center;
+            height: 30px;
+            line-height: 8px;
+            border-radius: 5px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff
+        }
+    </style>
     <!-- Packages Start -->
-    <div class="container-fluid packages py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Packages</h5>
-                <h1 class="mb-0">Awesome Packages</h1>
-            </div>
-            <div class="row">
+    <div class="container">
+        <div class="container-fluid mt-5 mb-5">
+            <div class="row g-2">
                 <div class="col-md-3">
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="assets/img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$349.00</div>
+                    <div class="processor p-2">
+                        <div class="heading d-flex justify-content-between align-items-center">
+                            <h6 class="text-uppercase">Nos catégories</h6> <span>--</span>
                         </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Venice - Italy</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                        <div class="d-flex justify-content-between mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="flexCheckDefault"><b>Equipements médicaux</b></label>
+                            </div> <span>3</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="flexCheckChecked"> <b>Gaz et Fluids médicaux</b></label>
                             </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                </div>
+                            <span>4</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="flexCheckChecked"> <b>Traitement des déchets</b> </label>
                             </div>
+                            <span>14</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="assets/img/packages-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$449.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">The New California</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
+                <div class="col-md-9">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
                                 </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
                                 </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="assets/img/packages-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$549.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Discover Japan</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
                                 </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
                                 </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="assets/img/packages-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Thayland</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                </div>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
+                                </div>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="packages-price py-2 px-4">$649.00</div>
                         </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Thayland Trip</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
                                 </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
+                                </div>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
                                 </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
+                                </div>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product py-4">
+                                <span class="off bg-success">-25% OFF</span>
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                </div>
+                                <div class="about text-center">
+                                    <h5>XRD Active Shoes</h5>
+                                </div>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-primary text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
+                                    </button>
+                                    <div class="add">
+                                        <span class="text-primary"><b>$1,999.99</b></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

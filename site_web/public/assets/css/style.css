@@ -146,7 +146,7 @@
 
 @media (max-width: 768px) {
     .topbar {
-        display: none;    
+        display: none;
     }
 }
 /*** Topbar End ***/
@@ -184,12 +184,14 @@
 }
 
 .navbar-light .navbar-brand img {
-    max-height: 60px;
+    max-height: 80px;
+    width: 110px;
     transition: .5s;
 }
 
 .sticky-top.navbar-light .navbar-brand img {
-    max-height: 45px;
+    max-height: 80px;
+    width: 110px;
 }
 
 .navbar .dropdown-toggle::after {
@@ -239,14 +241,14 @@
     }
 
     .navbar.navbar-expand-lg .navbar-toggler {
-        padding: 10px 20px;
+        padding: 15px;
         border: 1px solid var(--bs-primary);
         color: var(--bs-primary);
 
     }
 
     .navbar-light .navbar-collapse {
-        margin-top: 15px;
+        margin-top: 12px;
         border-top: 1px solid #DDDDDD;
     }
 
@@ -262,7 +264,7 @@
     }
 
     .navbar-light .navbar-brand img {
-        max-height: 45px;
+        max-height: 80px;
     }
 }
 
@@ -275,7 +277,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, .1);
         z-index: 999;
     }
-    
+
     .sticky-top.navbar-light {
         position: fixed;
         background: var(--bs-light);
@@ -378,14 +380,14 @@
     }
 
     .carousel-header {
-        height: 500px !important;
+        height: 400px !important;
     }
 
     .carousel-header .carousel-control-prev .carousel-control-prev-icon,
     .carousel-header .carousel-control-next .carousel-control-next-icon {
         opacity: 0;
     }
-    
+
     .search-bar {
         margin-top: -100px;
         transition: 0.5s;
@@ -587,15 +589,15 @@
 
 .packages .packages-item .packages-img .packages-price {
     position: absolute;
-    width: 100px; 
-    top: 0; 
-    left: 50%; 
+    width: 100px;
+    top: 0;
+    left: 50%;
     transform: translateX(-50%);
     display: inline-block;
     background: var(--bs-primary);
     color: var(--bs-white);
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
     z-index: 5;
 }
 
@@ -892,7 +894,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    
+
 }
 
 
@@ -934,8 +936,8 @@
 
 .guide .guide-item .guide-img .guide-icon {
     position: absolute;
-    bottom: 0; 
-    left: 50%; 
+    bottom: 0;
+    left: 50%;
     transform: translate(-50%, -50%);
     margin-bottom: -50px;
     display: flex;
@@ -1091,11 +1093,11 @@
 
 .testimonial .testimonial-carousel .testimonial-item .testimonial-img {
     position: relative;
-    width: 100px; 
-    height: 100px; 
-    top: 0; left: 50%; 
+    width: 100px;
+    height: 100px;
+    top: 0; left: 50%;
     transform: translate(-50%, -50%);
-    border: 3px solid var(--bs-primary); 
+    border: 3px solid var(--bs-primary);
     border-style: dotted;
     border-radius: 50%;
 }
@@ -1168,7 +1170,7 @@
 }
 
 .testimonial .testimonial-carousel .owl-item.center .testimonial-item .testimonial-img {
-    border: 3px solid var(--bs-white); 
+    border: 3px solid var(--bs-white);
     border-style: dotted;
     transition: 0.5s;
 }
@@ -1187,7 +1189,7 @@
 
 /*** Subscribe Start ***/
 .subscribe {
-    background: linear-gradient(rgba(19, 53, 123, .6), rgba(19, 53, 123, .6)), url(../img/subscribe-img.jpg);
+    background: linear-gradient(rgba(19, 53, 123, .6), rgba(19, 53, 123, .6)), url(../img/subscribe-img.jpeg);
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1228,7 +1230,7 @@
 /*** Footer Start ***/
 .footer {
     background: var(--bs-dark);
-    height: 18rem;
+
 }
 .footer .footer-item a {
     line-height: 30px;
