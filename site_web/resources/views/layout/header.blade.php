@@ -1,6 +1,6 @@
 <a href="" class="navbar-brand p-0">
     <!--<h1 class="m-0">MASSANANH EXPERTIZ</h1>-->
-    <img src="assets/img/logo.jpeg" alt="Logo" style="width: 100px;height: 100px">
+    <img src="{{asset('assets/img/logo.png')}}" alt="Logo" style="width: 100px;height: 100px">
 </a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
     <span class="fa fa-bars"></span>

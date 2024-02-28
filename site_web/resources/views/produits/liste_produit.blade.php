@@ -144,7 +144,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t1.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -163,7 +163,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t2.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -182,7 +182,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t1.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -201,7 +201,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t2.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -220,7 +220,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t1.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -239,7 +239,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="https://i.imgur.com/nOFet9u.jpg" width="200">
+                                    <img src="assets/img/t2.jpg" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>

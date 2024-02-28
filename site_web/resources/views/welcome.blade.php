@@ -10,7 +10,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5">
                     <div class="h-60" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="{{asset('assets/img/logo.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+                            <img src="{{asset('assets/img/bienvenue.jpg')}}" class="img-fluid w-100 h-100" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url({{asset('img/about-img-1.png')}});">
@@ -39,15 +39,15 @@
                 <h5 class="section-title px-3">Prestation de services</h5>
             </div>
             <div class="row g-4">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="packages-item">
                         <div class="packages-img">
-                            <img src="assets/img/packages-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
                         </div>
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
-                                <h5 class="mb-3">Discover Japan</h5>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                                <h5 class="mb-3">Construction civil et hospilolière</h5>
+                                <p class="mb-4">{{substr('Colcul, dimensionnement, Etudes, Gros æuvres, Plomberie. Electricité, Coneloge, Montcge de ponneoux préfobriqués, Foux plofonds, Peinture, Vidéosurveillonce.',0,115)}}...</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
@@ -55,15 +55,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="packages-item">
                         <div class="packages-img">
-                            <img src="assets/img/packages-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
                         </div>
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
-                                <h5 class="mb-3">Discover Japan</h5>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                                <h5 class="mb-3">Imagérie médicale</h5>
+                                <p class="mb-4">{{substr('Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.',0,115)}}...</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
@@ -71,15 +71,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="packages-item">
                         <div class="packages-img">
-                            <img src="assets/img/packages-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
                         </div>
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
-                                <h5 class="mb-3">Discover Japan</h5>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                                <h5 class="mb-3">Consultations</h5>
+                                <p class="mb-4">{{substr('Générale, chirurgie, pédiatrique, gynécologique, dentaire, ORL et ophtalmologie',0,115)}}</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
@@ -87,15 +87,79 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="packages-item">
                         <div class="packages-img">
-                            <img src="assets/img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
                         </div>
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
-                                <h5 class="mb-3">Discover Japan</h5>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                                <h5 class="mb-3">Bloc opéroloire</h5>
+                                <p class="mb-4">{{substr('Chirurgie, gynécologique, orthopédique, endoscopie',0,115)}}</p>
+                            </div>
+                            <div class="text-center bg-primary rounded-bottom mx-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-3">Laboraloire</h5>
+                                <p class="mb-4">{{substr('outo*or"r, microscopes, centrifugeuses, petits motériels, vererie et consommobles',0,115)}}</p>
+                            </div>
+                            <div class="text-center bg-primary rounded-bottom mx-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-3">Réseaux de gaz et de fluides médicaux</h5>
+                                <p class="mb-4">{{substr('Centroles, canalisations, régulation et terminaux ',0,115)}}</p>
+                            </div>
+                            <div class="text-center bg-primary rounded-bottom mx-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-3">Stérilisotion</h5>
+                                <p class="mb-4">{{substr('Petie, Moyenne et gronde capacité ',0,60)}} ..</p>
+                            </div>
+                            <div class="text-center bg-primary rounded-bottom mx-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="{{asset('assets/img/service.jpg')}}" class="img-fluid w-100 rounded-top" alt="Image">
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-3">Destruction des déchets hospitaliers</h5>
+                                <p class="mb-4">{{substr('Incinérateurs et banaliseurs ',0,60)}} ..</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
@@ -120,18 +184,11 @@
                         </p>
                     </div>
                     <div class="testimonial-img p-1">
-                        <img src="assets/img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{asset('assets/img/t1.jpg')}}" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div style="margin-top: -35px;">
                         <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
+                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center rounded pb-4">
@@ -140,18 +197,11 @@
                         </p>
                     </div>
                     <div class="testimonial-img p-1">
-                        <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{asset('assets/img/t2.jpg')}}" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div style="margin-top: -35px;">
                         <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
+                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center rounded pb-4">
@@ -160,18 +210,11 @@
                         </p>
                     </div>
                     <div class="testimonial-img p-1">
-                        <img src="assets/img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{asset('assets/img/t1.jpg')}}" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div style="margin-top: -35px;">
                         <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
+                        <p class="mb-0">Bouaké, Côte d'Ivoire</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center rounded pb-4">
@@ -180,18 +223,11 @@
                         </p>
                     </div>
                     <div class="testimonial-img p-1">
-                        <img src="assets/img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{asset('assets/img/t2.jpg')}}" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div style="margin-top: -35px;">
                         <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
+                        <p class="mb-0">Yamoussoukro, Côte d'Ivoire</p>
                     </div>
                 </div>
             </div>

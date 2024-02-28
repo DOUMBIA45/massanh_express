@@ -8,11 +8,11 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img src="{{asset('assets/img/carousel-2.jpg')}}" class="img-fluid" alt="Image">
+                    <img src="{{asset('assets/img/baniere1.jpg')}}" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
 
-                            <h1 class="display-2 text-capitalize text-white mb-4">Les 03 produits vendus</h1>
+                            <h1 class="display-2 text-capitalize text-white mb-4"> Construction de l'hôpital Général de Ferkessedougou</h1>
                             <div class="d-flex align-items-center justify-content-center">
 
                             </div>
@@ -20,10 +20,10 @@
                     </div>
                 </div >
                 <div class="carousel-item">
-                    <img src="{{asset('assets/img/carousel-1.jpg')}}" class="img-fluid" alt="Image">
+                    <img src="{{asset('assets/img/baniere2.jpg')}}" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-2 text-capitalize text-white mb-4">Les 03 produits vendus</h1>
+                            <h1 class="display-2 text-capitalize text-white mb-4">Installation au CHR de San Pedro</h1>
                             <div class="d-flex align-items-center justify-content-center">
 
                             </div>
@@ -31,10 +31,10 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('assets/img/carousel-3.jpg')}}" class="img-fluid" alt="Image">
+                    <img src="{{asset('assets/img/baniere3.jpg')}}" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-2 text-capitalize text-white mb-4">Les 03 produits vendus</h1>
+                            <h1 class="display-2 text-capitalize text-white mb-4">Maintenance préventive </h1>
                             <div class="d-flex align-items-center justify-content-center">
                             </div>
                         </div>
