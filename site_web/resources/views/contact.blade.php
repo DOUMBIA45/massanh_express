@@ -51,8 +51,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control border-0" id="subject" placeholder="Sujet">
+                                    <label for="subject">Sujet</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer le message</button>
                             </div>
                         </div>
                     </form>
