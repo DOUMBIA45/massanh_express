@@ -18,6 +18,7 @@
                     <h1 class="mb-4">Massanh Express</h1>
                     <p class="mb-4" style="font-size: 20px">
                         <b>MASSANANH EXPERTIZ</b> est une entreprise de construction hospitalier - Fourniture, installation, formation et mise en service d'équipements biomédicaux - Fourniture de consommables biomédicaux, Fabrication, vente, Distribution de tout produits pharmaceutiques et équipements biomédicaux - Fourniture de bureaux et mobilier biomédicaux - Représentation et importation pour le compte de sociétés locales et étrangères.
+
                     </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="text-center">
@@ -47,7 +48,7 @@
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-3">Construction civil et hospilolière</h5>
-                                <p class="mb-4">{{substr('Colcul, dimensionnement, Etudes, Gros æuvres, Plomberie. Electricité, Coneloge, Montcge de ponneoux préfobriqués, Foux plofonds, Peinture, Vidéosurveillonce.',0,115)}}...</p>
+                                <p class="mb-4">{{substr('',0,115)}}...</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
@@ -63,7 +64,7 @@
                         <div class="packages-content bg-light">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-3">Imagérie médicale</h5>
-                                <p class="mb-4">{{substr('Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.',0,115)}}...</p>
+                                <p class="mb-4">{{substr('',0,115)}}...</p>
                             </div>
                             <div class="text-center bg-primary rounded-bottom mx-0">
                                 <a href="#" class="btn-hover btn text-white py-2 px-4"><i class="fa fa-eye"></i> Voir plus</a>
