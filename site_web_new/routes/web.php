@@ -22,14 +22,20 @@ use App\Http\Controllers\HomePageController;
 
 Route::get('/', [HomePageController::class, 'HomePage'])->name('HomePage');
 Route::get('/actualite', [HomePageController::class, 'actualite'])->name('actualite');
-Route::get('/equipe', [HomePageController::class, 'equipe'])->name('equipe');
+Route::get('/about', [HomePageController::class, 'about'])->name('about');
 Route::get('/contact', [HomePageController::class, 'contact'])->name('contact');
+
+Route::get('/travaux', [HomePageController::class, 'travaux'])->name('travaux');
+
+
+Route::get('/services', [HomePageController::class, 'services'])->name('services');
+Route::get('/demande_services', [HomePageController::class, 'demande_services'])->name('demande_services');
 
 
 
 Route::get('/listeProduits', [ProduitController::class, 'listeProduits'])->name('listeProduits');
 
-
+require __DIR__.'/admin/route.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

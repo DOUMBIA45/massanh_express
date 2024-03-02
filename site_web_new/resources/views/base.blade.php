@@ -40,5 +40,6 @@
 
 <!-- JavaScript Libraries -->
 @include('layout.script')
+
 </body>
 </html>
