@@ -18,7 +18,7 @@ class ARealisationController extends Controller
         $formData = $request->all();
         $actualites = new  Realisation();
         $actualites->description = $formData['description'];
-        $actualites->image =$formData['image'] == 'undefined'? null : UploadeFiles($formData['image'],env('ACTUALITE_ASSET'),500,500);
+        $actualites->image = $formData['image'] == 'undefined'? null : UploadeFiles($formData['image'],env('ACTUALITE_ASSET'),500,500);
         $actualites->save();
         return response()->json([
             'code'=>200,

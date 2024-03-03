@@ -32,7 +32,7 @@
                                 <tbody>
                                 @foreach($services as $service)
                                     <tr>
-                                        <td>
+                                        <td class="p-2">
                                             @if($service->images)
                                                 <a href="#">
                                                     <img src="{{asset(env('SERVICES_ASSET').'/'.$service->images)}}" alt="avatar" width="80" class="rounded mr-1">

@@ -21,4 +21,10 @@
 <script src="{{asset('asset_admin/js/scripts.js')}}"></script>
 <script src="{{asset('asset_admin/js/custom.js')}}"></script>
 <script src="{{asset('asset_admin/modules/sweetalert/sweetalert.min.js')}}"></script>
+
+<script src="{{asset('asset_admin/modules/datatables/datatables.min.js')}}"></script>
+<script src="{{asset('asset_admin/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
+
+<!-- Page Specific JS File -->
+<script src="{{asset('asset_admin/js/page/components-table.js')}}"></script>
 @stack("script")

@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->text('nom');
-            $table->text('fonction');
-            $table->text('l_facebook');
-            $table->text('l_twitter');
-            $table->text('l_linkedin');
+            $table->text('fonction')->nullable();
+            $table->text('l_facebook')->nullable();
+            $table->text('l_twitter')->nullable();
+            $table->text('l_linkedin')->nullable();
             $table->timestamps();
         });
     }

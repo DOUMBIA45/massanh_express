@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AAcutaliteController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ARealisationController;
+use App\Http\Controllers\Admin\EquipeController;
+use App\Http\Controllers\Admin\ProduitController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +12,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/dashboard',[AdminController::class,'index'])->name("admin.dashboard");
 
     ///////////////////////// ROUTE SERVICES //////////////
-    Route::get('admin/services',[ServiceController::class,'index'])->name('admin.services');
+    Route::get('admin/services',[ServiceController::class,'services'])->name('admin.services');
     Route::post('admin/store_service',[ServiceController::class,'store_service'])->name('admin.store_service');
     Route::post('admin/delete_services',[ServiceController::class,'delete_services'])->name('admin.delete_services');
 
@@ -23,6 +25,21 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/realisation',[ARealisationController::class,'realisation'])->name('admin.realisation');
     Route::post('admin/store_realisation',[ARealisationController::class,'store_realisation'])->name('admin.store_realisation');
     Route::post('admin/delete_realisation',[ARealisationController::class,'delete_realisation'])->name('admin.delete_realisation');
+
+    /////////////////////// ROUTE EQUIPE
+    Route::get('admin/equipe',[EquipeController::class,'equipe'])->name('admin.equipe');
+    Route::post('admin/store_equipe',[EquipeController::class,'store_equipe'])->name('admin.store_equipe');
+    Route::post('admin/delete_equipe',[EquipeController::class,'delete_equipe'])->name('admin.delete_equipe');
+
+    ///////////////////////// ROUTES PRODUITS
+
+    Route::get('admin/produits',[ProduitController::class,'index'])->name('admin.produits');
+    Route::get('admin/add_produits',[ProduitController::class,'add_produits'])->name('admin.add_produits');
+    Route::post('admin/store_produits',[ProduitController::class,'store_produits'])->name('admin.store_produits');
+    Route::get('admin/show_produits',[ProduitController::class,'show_produits'])->name('admin.show_produits');
+    Route::get('admin/update_produits',[ProduitController::class,'update_produits'])->name('admin.update_produits');
+    Route::post('admin/store_update_produits',[ProduitController::class,'store_update_produits'])->name('admin.store_update_produits');
+    Route::post('admin/delete_produits',[ProduitController::class,'delete_produits'])->name('admin.delete_produits');
 
 });
 
