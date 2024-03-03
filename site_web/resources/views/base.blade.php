@@ -1,65 +1,45 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 @include('layout.head')
 </head>
 
 <body>
-
 <!-- Spinner Start -->
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
+    <div class="spinner-grow text-primary" role="status"></div>
 </div>
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+<div class="container-fluid bg-dark text-white-50 py-2 px-0 d-none d-lg-block">
     @include('layout.topbar')
 </div>
 <!-- Topbar End -->
 
-<!-- Navbar & Hero Start -->
-<div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-       @include('layout.header')
-    </nav>
-    <!-- Carousel Start -->
-    @include('layout.head_start')
-    <!-- Carousel End -->
-</div>
-<!-- Navbar & Hero End -->
+<!-- Navbar Start -->
+@include('layout.header')
+<!-- Navbar End -->
 
 @yield('content')
 
-<!-- Subscribe Start -->
-<div class="container-fluid subscribe py-5">
-    @include('layout.subscribe')
-</div>
-<!-- Subscribe End -->
-
 <!-- Footer Start -->
-<div class="container-fluid footer py-5">
-    @include('layout.footer')
+<div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+   @include('layout.footer')
+    <div class="container-fluid copyright">
+        <div class="container">
+            @include('layout.copyright')
+        </div>
+    </div>
 </div>
 <!-- Footer End -->
 
-<!-- Copyright Start -->
-<div class="container-fluid copyright text-body py-4">
-    @include('layout.copyright')
-</div>
-</div>
-<!-- Copyright End -->
-
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 <!-- JavaScript Libraries -->
 @include('layout.script')
-</body>
 
+</body>
 </html>

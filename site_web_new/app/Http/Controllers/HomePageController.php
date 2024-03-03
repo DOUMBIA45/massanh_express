@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Hash;
+
 class HomePageController extends Controller{
 
     public function HomePage(){

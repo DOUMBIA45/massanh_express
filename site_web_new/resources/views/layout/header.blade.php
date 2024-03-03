@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
     <a href="/" class=" d-flex align-items-center">
         <h1 class="m-0">
-            <img class="img-fluid me-3" src="{{asset("assets/img/logo.png")}}" alt=""style="height: 90px;width: 140px"/>
+            <img class="img-fluid me-3" src="{{asset("assets/img/logo.png")}}" alt="" style="height: 90px;width: 140px"/>
         </h1>
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

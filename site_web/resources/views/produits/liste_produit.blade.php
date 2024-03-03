@@ -108,6 +108,7 @@
         }
     </style>
     <!-- Packages Start -->
+    @include("layout.head_start")
     <div class="container">
         <div class="container-fluid mt-5 mb-5">
             <div class="row g-2">
@@ -201,7 +202,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="assets/img/t2.jpg" width="200">
+                                    <img src="{{asset('assets/img/t2.jpg')}}" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>
@@ -220,7 +221,7 @@
                             <div class="product py-4">
                                 <span class="off bg-success">-25% OFF</span>
                                 <div class="text-center">
-                                    <img src="assets/img/t1.jpg" width="200">
+                                    <img src="{{asset('assets/img/t1.jpg')}}" width="200">
                                 </div>
                                 <div class="about text-center">
                                     <h5>XRD Active Shoes</h5>

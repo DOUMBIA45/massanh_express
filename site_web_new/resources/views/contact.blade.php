@@ -8,27 +8,50 @@
     <!-- Contact Start -->
     <div class="container-xxl py-5">
         <div class="container">
+            <h1 class="display-6 mb-5 text-center">CONTACTEZ-NOUS</h1>
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-6 mb-5">CONTACTEZ-NOUS</h1>
+                <div class="col-lg-4">
+                    <div class="bg-white rounded p-4">
+                        <div class="mb-4">
+                            <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
+                            <h4 class="text-primary"><Address></Address></h4>
+                            <p class="mb-0">Abidjan, Riviera Faya, non loin du Lycée lnternational Jules Vernes</p>
+                        </div>
+                        <div class="mb-4">
+                            <i class="fa fa-phone-alt fa-2x text-primary mb-3"></i>
+                            <h4 class="text-primary">Mobile</h4>
+                            <p class="mb-0">(+225) 27 22 46 93 23</p>
+                            <p class="mb-0">(+225) 07 77 11 62 61</p>
+                        </div>
+
+                        <div class="">
+                            <i class="fa fa-envelope-open fa-2x text-primary mb-3"></i>
+                            <h4 class="text-primary">Email</h4>
+                            <p class="mb-0">office@massananhexpertiz.com</p>
+                            <p class="mb-0">jkouassi@massananhexpertiz.com</p>
+                            <p class="mb-0">massananh1er@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.1s">
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name"/>
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Nom et Prénoms"/>
+                                    <label for="name">Nom et Prénoms</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email"/>
-                                    <label for="email">Your Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="E-mail"/>
+                                    <label for="email">E-mail</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject"/>
-                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Sujet"/>
+                                    <label for="subject">Sujet</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -38,14 +61,12 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">
-                                    Send Message
-                                </button>
+                                <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px">
+                <div class="col-lg-12 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px">
                     <div class="position-relative rounded overflow-hidden h-100">
                         <iframe
                             class="position-relative w-100 h-100"

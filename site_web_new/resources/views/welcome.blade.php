@@ -230,7 +230,85 @@
         </div>
     </div>
     <!-- Service End -->
-
+    <div class="container-fluid appointment my-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-2">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                    <h1 class="display-6 text-white mb-5">Nous sommes une compagnie d'assurance primée</h1>
+                    <p class="text-white mb-5">
+                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
+                        stet lorem sit clita duo justo magna dolore erat amet. Tempor erat
+                        elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
+                        diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
+                        clita duo justo magna.
+                    </p>
+                    <div class="bg-white rounded p-3">
+                        <div class="d-flex align-items-center bg-primary rounded p-3">
+                            <img class="flex-shrink-0 rounded-circle me-3" src="{{asset('asset/img/profile.jpg')}}" alt=""/>
+                            <h5 class="text-white mb-0">Contactez-nous: +225 07 77 11 62 61</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="bg-white rounded p-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="gname" placeholder="Nom et Prénoms"/>
+                                        <label for="gname">Nom et Prénoms</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <select class="form-control" >
+                                            <option>Type d'entreprise</option>
+                                            <option>Entreprise</option>
+                                            <option>Association</option>
+                                            <option>personnel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="gmail" placeholder="Gurdian Email"/>
+                                        <label for="gmail">E-mail</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cname" placeholder="Child Name"/>
+                                        <label for="cname">Nom de la compagnie</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <label for="cage">Date rdv</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="time" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <label for="cage">Heure rdv</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <label for="cage">Nombre de Personne</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
@@ -255,7 +333,6 @@
                                 J’ai vu le CHR DE MAN les travaux sont à la hauteur des équipements…merci de présenter ces équipements et qui j’espère seront utilisés en bon usage pour ces DG différents établissements hospitaliers pour le bien être de la collectivité.
                             </p>
                             <h5>Vanly TIENE</h5>
-                            <span>Profession</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t2.png')}}" alt=""/>
@@ -263,7 +340,6 @@
                                 Seuls les actes parlent. Mes vives et chaleureuses félicitations. Massananh Expertiz un jour, Massananh Expertiz toujours.
                             </p>
                             <h5>Denis EFFI</h5>
-                            <span>Profession</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t3.png')}}" alt=""/>
@@ -271,7 +347,6 @@
                                 Félicitations à vous Monsieur le Directeur de MASSANANH EXPERTIZ et à toute votre équipe pour ce beau boulot abattu.
                             </p>
                             <h5>Regi Tendance</h5>
-                            <span>Profession</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t4.png')}}" alt=""/>
@@ -279,7 +354,6 @@
                                 Ça va vite avec Massananh expertiz.
                             </p>
                             <h5>Williams ATSE</h5>
-                            <span>Profession</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t5.png')}}" alt=""/>
@@ -287,7 +361,6 @@
                                 Meilleure des Meilleures entreprises en matière de services biomedicales. Testez et vous verez.
                             </p>
                             <h5>David YAO</h5>
-                            <span>Profession</span>
                         </div>
                     </div>
                 </div>
@@ -310,50 +383,54 @@
                     <div id="carouselLogos" class="carousel slide pt-5 pb-4" data-bs-ride="carousel">
                         <div class="carousel-inner px-5">
                             <div class="carousel-item active">
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     <div class="col-6 col-lg-2 align-self-center">
                                         <img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
                                     </div>
                                     <div class="col-6 col-lg-2  align-self-center">
                                         <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-6 col-lg-2 align-self-center">
+                                        <img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
                                     </div>
                                     <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
+                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-6 col-lg-2 align-self-center">
-                                        <img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
-                                    </div>
+                                <div class="row justify-content-center">
                                     <div class="col-6 col-lg-2  align-self-center">
                                         <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
                                     </div>
                                     <div class="col-6 col-lg-2  align-self-center">
                                         <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-6 col-lg-2  align-self-center">
+                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
+                                    </div>
+                                    <div class="col-6 col-lg-2  align-self-center">
+                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
+                                        <h4 class="text-center">Titre</h4>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

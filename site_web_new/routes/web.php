@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +37,11 @@ Route::get('/demande_services', [HomePageController::class, 'demande_services'])
 
 Route::get('/listeProduits', [ProduitController::class, 'listeProduits'])->name('listeProduits');
 
-require __DIR__.'/admin/route.php';
+
+Route::post('authLogin',[LoginController::class,'authLogin'])->name('authLogin');
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+require __DIR__.'/admin/route.php';

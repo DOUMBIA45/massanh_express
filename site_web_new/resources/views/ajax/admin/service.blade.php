@@ -1,0 +1,106 @@
+<script>
+    $(document).ready(()=>{
+        $('.modal_service').click(function (e){
+            $('#modal_service').modal('show')
+        })
+    })
+</script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).ready(function(){
+        $('#UploadServices').click(function (e){
+            e.preventDefault()
+            $("#UploadServices").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
+            $("#UploadServices").prop('disabled', false);
+            var description = $('textarea[name="description"]').val();
+            var titre = $('input[name="titre"]').val();
+            var image = $('#image')[0].files[0];
+
+            if(description.length == '' || titre.length == ''){
+                $('#errorModal').modal('show')
+                $('.errorMessage').text('Désolé, tous ces champs sont réquis')
+                $("#UploadServices").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                $("#UploadServices").prop('disabled', false);
+            }else{
+                if(image){
+                    var image_name = image.name;
+                    var image_extension = image_name.split('.').pop().toLowerCase();
+                    if (jQuery.inArray(image_extension, ['jpg', 'jpeg', 'png']) == -1) {
+                        $('#merror_photo_extension').text('Fichier non autorisé, vuillez charger une bonne image(png,pjg ou jpeg)');
+                        $("#UploadServices").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                        $("#UploadServices").prop('disabled', false);
+                        return false;
+                    }
+                }
+                var formData = new FormData();
+                formData.append("description",description);
+                formData.append("titre",titre);
+                formData.append("image",image);
+                $.ajax({
+                    url: '{{route('admin.store_service')}}',
+                    method: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType:'json',
+                    success: function(data) {
+                        if (data.code == 200){
+                            $('#successModal').modal('show')
+                            $('.succesMessage').text('Féliciation, le service '+titre+' a été ajouté avec succès')
+                            setTimeout(function (){
+                                window.location.reload()
+                            },4000);
+                        }
+                        if (data.code == 301){
+                            $('#errorModal').modal('show')
+                            $('.errorMessage').text('Désolé, le service '+email+' existe déjà')
+                            $("#UploadServices").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                            $("#UploadServices").prop('disabled', false);
+                        }
+                    }
+                });
+            }
+
+        })
+    })
+
+</script>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="successModal">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div id="checkIcon">
+                    <i class="text-success fa fa-check-circle" style="font-size: 40px"></i>
+                </div>
+                <div class="mt-4 py-2">
+                    <b class="succesMessage"></b>
+                </div>
+                <div class="py-1"><button type="button" class="btn btn-sm btn-outline-success rounded-pill px-5" data-bs-dismiss="modal">OK</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="errorModal">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div id="checkIcon">
+                    <i class="text-danger fa fa-exclamation-circle" style="font-size: 40px"></i>
+                </div>
+                <div class="mt-4 py-2">
+                    <p class="px-4 pb-0 mb-1 text-secondary">Oops...</p>
+                    <b class="errorMessage" style="color: red"></b>
+                </div>
+                <div class="py-1"><button type="button" class="btn btn-sm btn-danger rounded-pill px-5" data-bs-dismiss="modal">OK</button></div>
+            </div>
+        </div>
+    </div>
+</div>
