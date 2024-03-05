@@ -36,6 +36,7 @@ Route::get('/demande_services', [HomePageController::class, 'demande_services'])
 
 
 Route::get('/listeProduits', [ProduitController::class, 'listeProduits'])->name('listeProduits');
+Route::get('/showPorduct', [ProduitController::class, 'showPorduct'])->name('showPorduct');
 
 
 Route::post('authLogin',[LoginController::class,'authLogin'])->name('authLogin');

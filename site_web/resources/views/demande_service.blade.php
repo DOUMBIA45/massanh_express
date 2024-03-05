@@ -6,18 +6,12 @@
 @section('content')
     @include('layout.head_start')
     <!-- Appointment Start -->
-    <div class="container-fluid appointment my-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container appointment my-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-6 text-white mb-5">TITRE U SERVICE</h1>
-                    <p class="text-white mb-5">
-                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
-                        stet lorem sit clita duo justo magna dolore erat amet. Tempor erat
-                        elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                        diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
-                        clita duo justo magna.
-                    </p>
+                    <h1 class="display-6 text-white mb-5">{{$services->titre}}</h1>
+                    <p class="text-white mb-5">{!! $services->description !!}</p>
                     <div class="bg-white rounded p-3">
                         <div class="d-flex align-items-center bg-primary rounded p-3">
                             <img class="flex-shrink-0 rounded-circle me-3" src="{{asset('asset/img/profile.jpg')}}" alt=""/>

@@ -108,7 +108,17 @@
         }
     </style>
     <!-- Packages Start -->
-    @include("layout.head_start")
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-4 animated slideInDown mb-4 text-white">{{$produits->category}}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="#" class="text-white">Accueil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$produits->category}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="container">
         <div class="container-fluid mt-5 mb-5">
             <div class="row g-2">
@@ -117,144 +127,38 @@
                         <div class="heading d-flex justify-content-between align-items-center">
                             <h6 class="text-uppercase">Nos catégories</h6> <span>--</span>
                         </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label" for="flexCheckDefault"><b>Equipements médicaux</b></label>
-                            </div> <span>3</span>
-                        </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label" for="flexCheckChecked"> <b>Gaz et Fluids médicaux</b></label>
+                        @foreach($categories as $categorie)
+                            <div class="d-flex justify-content-between mt-2">
+                                <a href="{{route('listeProduits')}}?categorie_id={{$categorie->id}}&&token={{\Str::random(100)}}">
+                                    <label class="form-check-label" for="flexCheckDefault"><b>{{$categorie->category}}</b></label>
+                                </a> <span>{{count($categorie->produit)}}</span>
                             </div>
-                            <span>4</span>
-                        </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label" for="flexCheckChecked"> <b>Traitement des déchets</b> </label>
-                            </div>
-                            <span>14</span>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="assets/img/t1.jpg" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
+                        @foreach($produits->produit as $produit)
+                            <div class="col-md-4">
+                                <div class="product py-4">
+                                    <span class="off bg-warning">- {{$produit->promotion}} %</span>
+                                    <div class="text-center">
+                                        <img src="{{asset(env('PRODUIT_ASSET').'/'.$produit->image_prod)}}" width="200">
+                                    </div>
+                                    <div class="about text-center">
+                                        <h5>{{$produit->nom_produit}}</h5>
+                                    </div>
+                                    <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                        <a class="btn btn-primary text-uppercase" href="{{route('showPorduct')}}?produit_id={{$produit->id}}&&token={{\Str::random(100)}}">
+                                            <i class="fa fa-eye"></i> <b>Voir plus</b>
+                                        </a>
+                                        <div class="add">
+                                            <span class="text-primary"><b>{{format_number($produit->prix)}}</b></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="assets/img/t2.jpg" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="assets/img/t1.jpg" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="{{asset('assets/img/t2.jpg')}}" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="{{asset('assets/img/t1.jpg')}}" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product py-4">
-                                <span class="off bg-success">-25% OFF</span>
-                                <div class="text-center">
-                                    <img src="assets/img/t2.jpg" width="200">
-                                </div>
-                                <div class="about text-center">
-                                    <h5>XRD Active Shoes</h5>
-                                </div>
-                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> <b>Acheter</b>
-                                    </button>
-                                    <div class="add">
-                                        <span class="text-primary"><b>$1,999.99</b></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

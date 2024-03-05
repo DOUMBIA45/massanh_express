@@ -141,90 +141,20 @@
                 <h1 class="display-6 mb-5">Prestations de services</h1>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-10-light.png')}}" alt=""/>
+                @foreach($services as $service)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$service->id}}s">
+                        <div class="service-item rounded h-100 p-5">
+                            <div class="d-flex align-items-center ms-n5 mb-4">
+                                <div class="service-icon flex-shrink-0  rounded-end me-4">
+                                    <img class="img-fluid" src="{{asset(env('SERVICES_ASSET').'/'.$service->images)}}" alt=""/>
+                                </div>
+                                <h4 class="mb-0">{{$service->titre}}</h4>
                             </div>
-                            <h4 class="mb-0">Construction civil et hospilolière</h4>
+                            <div class="mb-4">{!! $service->description !!}</div>
+                            <a class="btn btn-light px-3" href="{{route('demande_services')}}?id={{$service->id}}&&token={{\Str::random(100)}}">Demander le service</a>
                         </div>
-                        <p class="mb-4">
-                            Calcul, dimensionnement, Etudes, Gros æuvres, Plomberie. Electricité, Coneloge, Montcge de ponneoux préfobriqués, Foux plofonds, Peinture, Vidéosurveillonce.
-                        </p>
-                        <a class="btn btn-light px-3" href="{{route('demande_services')}}?token={{\Str::random(100)}}">Demander le service</a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-01-light.png')}}" alt=""/>
-                            </div>
-                            <h4 class="mb-0">Imagérie médicale</h4>
-                        </div>
-                        <p class="mb-4">
-                            Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.
-                        </p>
-                        <a class="btn btn-light px-3" href="">Démander le service</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-01-light.png')}}" alt=""/>
-                            </div>
-                            <h4 class="mb-0">Imagérie médicale</h4>
-                        </div>
-                        <p class="mb-4">
-                            Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.
-                        </p>
-                        <a class="btn btn-light px-3" href="">Démander le service</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-01-light.png')}}" alt=""/>
-                            </div>
-                            <h4 class="mb-0">Imagérie médicale</h4>
-                        </div>
-                        <p class="mb-4">
-                            Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.
-                        </p>
-                        <a class="btn btn-light px-3" href="">Démander le service</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-01-light.png')}}" alt=""/>
-                            </div>
-                            <h4 class="mb-0">Imagérie médicale</h4>
-                        </div>
-                        <p class="mb-4">
-                            Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.
-                        </p>
-                        <a class="btn btn-light px-3" href="">Démander le service</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded h-100 p-5">
-                        <div class="d-flex align-items-center ms-n5 mb-4">
-                            <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                <img class="img-fluid" src="{{asset('assets/img/icon/icon-01-light.png')}}" alt=""/>
-                            </div>
-                            <h4 class="mb-0">Imagérie médicale</h4>
-                        </div>
-                        <p class="mb-4">
-                            Radiographie os-poumons, échographie, mommographie, table télécommandée, amplificateur de brillance et scanner.
-                        </p>
-                        <a class="btn btn-light px-3" href="">Démander le service</a>
-                    </div>
-                </div>
+                @endforeach
             </div><br>
             <a class="btn btn-primary float-end p-3" href="{{route('services')}}?token={{\Str::random(100)}}"><b>Voir plus</b></a>
         </div>
@@ -234,13 +164,9 @@
         <div class="container py-2">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-6 text-white mb-5">Nous sommes une compagnie d'assurance primée</h1>
+                    <h1 class="display-6 text-white mb-5">Nous sommes une entreprise de construction hospitalière</h1>
                     <p class="text-white mb-5">
-                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
-                        stet lorem sit clita duo justo magna dolore erat amet. Tempor erat
-                        elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                        diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
-                        clita duo justo magna.
+                        Pour tous vos conseils, suivi et construction hospitalière, veuillez prendre rendez avec nos experts du domaine.
                     </p>
                     <div class="bg-white rounded p-3">
                         <div class="d-flex align-items-center bg-primary rounded p-3">
@@ -271,14 +197,14 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="gmail" placeholder="Gurdian Email"/>
+                                        <input type="email" class="form-control" id="gmail" placeholder="E-mail"/>
                                         <label for="gmail">E-mail</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cname" placeholder="Child Name"/>
-                                        <label for="cname">Nom de la compagnie</label>
+                                        <input type="text" class="form-control" id="cname" placeholder="Numéro de téléphone"/>
+                                        <label for="cname">Numéro de téléphone</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -300,7 +226,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
+                                    <button class="btn btn-primary py-3 px-5" type="submit"><b>Prendre RDV</b></button>
                                 </div>
                             </div>
                         </form>
@@ -377,6 +303,9 @@
     <!-- Testimonial End -->
     <hr>
     <div class="container py-2">
+        <div class="text-center mx-auto" style="max-width: 500px">
+            <h1 class="display-6 mb-5">Nos Partenaires</h1>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="lc-block">

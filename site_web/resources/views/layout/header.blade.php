@@ -14,9 +14,9 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{Route::current()->getName() == 'listeProduits' ? 'active':'' }}" data-bs-toggle="dropdown">Produits</a>
                 <div class="dropdown-menu bg-light border-0 m-0">
-                    <a href="{{route('listeProduits')}}?token={{\Str::random(100)}}" class="dropdown-item">Equipements médicaux</a>
-                    <a href="{{route('listeProduits')}}?token={{\Str::random(100)}}" class="dropdown-item">Gaz et Fluids médicaux</a>
-                    <a href="{{route('listeProduits')}}?token={{\Str::random(100)}}" class="dropdown-item">Traitement des déchets</a>
+                    @foreach($categories as $categorie)
+                        <a href="{{route('listeProduits')}}?categorie_id={{$categorie->id}}&&token={{\Str::random(100)}}" class="dropdown-item">{{$categorie->category}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="nav-item dropdown">
