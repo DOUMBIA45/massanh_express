@@ -13,87 +13,28 @@
                 <h1 class="mb-0">Liste de nos Actualités</h1>
             </div>
             <div class="row g-4">
-               <div class="col-md-3">
-                   <div class="packages-item">
-                       <div class="packages-img">
-                           <img src="assets/img/t1.jpg" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
-                       </div>
-                       <div class="packages-content bg-light">
-                           <div class="p-4 pb-0">
-                               <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                           </div>
-                           <div class="row bg-primary rounded-bottom mx-0">
-                               <div class="col-6 text-start px-0">
+                @foreach($actualites as $actualite)
+                    <div class="col-md-3">
+                        <div class="packages-item">
+                            <div class="packages-img">
+                                <img src="{{asset(env('ACTUALITE_ASSET').'/'.$actualite->image)}}" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
+                            </div>
+                            <div class="packages-content bg-light">
+                                <div class="p-4 pb-0">
+                                    <p class="mb-4">{!! $actualite->description !!}</p>
+                                </div>
+                                <div class="row bg-primary rounded-bottom mx-0">
+                                    <div class="col-6 text-start px-0">
 
-                               </div>
-                               <div class="col-6 text-end px-0">
-                                   <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <div class="packages-item">
-                       <div class="packages-img">
-                           <img src="assets/img/t1.jpg" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
-                       </div>
-                       <div class="packages-content bg-light">
-                           <div class="p-4 pb-0">
-                               <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                           </div>
-                           <div class="row bg-primary rounded-bottom mx-0">
-                               <div class="col-6 text-start px-0">
-
-                               </div>
-                               <div class="col-6 text-end px-0">
-                                   <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <div class="packages-item">
-                       <div class="packages-img">
-                           <img src="assets/img/t1.jpg" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
-                       </div>
-                       <div class="packages-content bg-light">
-                           <div class="p-4 pb-0">
-                               <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                           </div>
-                           <div class="row bg-primary rounded-bottom mx-0">
-                               <div class="col-6 text-start px-0">
-
-                               </div>
-                               <div class="col-6 text-end px-0">
-                                   <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <div class="packages-item">
-                       <div class="packages-img">
-                           <img src="assets/img/t1.jpg" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
-                       </div>
-                       <div class="packages-content bg-light">
-                           <div class="p-4 pb-0">
-                               <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                           </div>
-                           <div class="row bg-primary rounded-bottom mx-0">
-                               <div class="col-6 text-start px-0">
-
-                               </div>
-                               <div class="col-6 text-end px-0">
-                                   <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-
+                                    </div>
+                                    <div class="col-6 text-end px-0">
+                                        <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

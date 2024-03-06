@@ -27,7 +27,12 @@ Route::get('/actualite', [HomePageController::class, 'actualite'])->name('actual
 Route::get('/about', [HomePageController::class, 'about'])->name('about');
 Route::get('/contact', [HomePageController::class, 'contact'])->name('contact');
 
+Route::post('/addContact', [HomePageController::class, 'addContact'])->name('addContact');
+
 Route::get('/travaux', [HomePageController::class, 'travaux'])->name('travaux');
+
+Route::post('/addRdv', [HomePageController::class, 'addRdv'])->name('addRdv');
+Route::post('/addNewLetter', [HomePageController::class, 'addNewLetter'])->name('addNewLetter');
 
 
 Route::get('/services', [HomePageController::class, 'services'])->name('services');
@@ -37,6 +42,7 @@ Route::get('/demande_services', [HomePageController::class, 'demande_services'])
 
 Route::get('/listeProduits', [ProduitController::class, 'listeProduits'])->name('listeProduits');
 Route::get('/showPorduct', [ProduitController::class, 'showPorduct'])->name('showPorduct');
+Route::get('/commandeProduits', [ProduitController::class, 'commandeProduits'])->name('commandeProduits');
 
 
 Route::post('authLogin',[LoginController::class,'authLogin'])->name('authLogin');

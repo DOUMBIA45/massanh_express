@@ -40,6 +40,6 @@
 
 <!-- JavaScript Libraries -->
 @include('layout.script')
-
+@stack('script')
 </body>
 </html>

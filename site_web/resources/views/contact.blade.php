@@ -38,30 +38,30 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Nom et Prénoms"/>
+                                    <input type="text" class="form-control" name="fullName" placeholder="Nom et Prénoms"/>
                                     <label for="name">Nom et Prénoms</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="E-mail"/>
+                                    <input type="email" class="form-control" name="email" placeholder="E-mail"/>
                                     <label for="email">E-mail</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Sujet"/>
+                                    <input type="text" class="form-control" name="sujet" placeholder="Sujet"/>
                                     <label for="subject">Sujet</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                     <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                     <textarea class="form-control" placeholder="Leave a message here" name="message" style="height: 100px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="AddContact">Envoyer</button>
                             </div>
                         </div>
                     </form>
@@ -83,3 +83,7 @@
     </div>
     <!-- Contact End -->
 @endsection
+
+@push('script')
+    @include('ajax.contact')
+@endpush

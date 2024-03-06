@@ -72,8 +72,7 @@
                         <img class="position-absolute w-100 h-100" src="{{asset('assets/img/bienvenue.jpg')}}" alt="" style="object-fit: cover"/>
                         <div class="position-absolute top-0 start-0 bg-white rounded pe-3 pb-3" style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary rounded h-100 p-3">
-                                <h1 class="text-white mb-0">{{07}}</h1>
-                                <h2 class="text-white">ans</h2>
+                                <h1 class="text-white mb-0">{{getAge(date('2017/01/01'))}}</h1>
                                 <h5 class="text-white mb-0">d'experience</h5>
                             </div>
                         </div>
@@ -181,14 +180,14 @@
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="gname" placeholder="Nom et Prénoms"/>
+                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
                                         <label for="gname">Nom et Prénoms</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <select class="form-control" >
-                                            <option>Type d'entreprise</option>
+                                        <select class="form-control" name="type_entreprise">
+                                            <option value="A">Type d'entreprise</option>
                                             <option>Entreprise</option>
                                             <option>Association</option>
                                             <option>personnel</option>
@@ -197,36 +196,36 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="gmail" placeholder="E-mail"/>
+                                        <input type="email" class="form-control" placeholder="E-mail" name="email"/>
                                         <label for="gmail">E-mail</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cname" placeholder="Numéro de téléphone"/>
+                                        <input type="text" class="form-control"  placeholder="Numéro de téléphone" name="telephone"/>
                                         <label for="cname">Numéro de téléphone</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="date" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <input type="date" class="form-control" name="date_rdv"/>
                                         <label for="cage">Date rdv</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="time" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <input type="time" class="form-control" name="heure_rdv"/>
                                         <label for="cage">Heure rdv</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cage" placeholder="Child Age"/>
+                                        <textarea type="text" class="form-control" name="message"></textarea>
                                         <label for="cage">Nombre de Personne</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit"><b>Prendre RDV</b></button>
+                                    <button class="btn btn-primary py-3 px-5" type="submit" id="RDV"><b>Prendre RDV</b></button>
                                 </div>
                             </div>
                         </form>
@@ -384,3 +383,7 @@
     </div>
 
 @endsection
+
+@push('script')
+    @include('ajax.rdv')
+@endpush

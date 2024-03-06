@@ -24,5 +24,8 @@ class VerifyCsrfToken extends Middleware
         'admin/store_produits',
         'admin/store_update_produits',
         'admin/delete_produits',
+        'addRdv',
+        'addNewLetter',
+        'addContact',
     ];
 }

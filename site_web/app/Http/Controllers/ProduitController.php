@@ -22,9 +22,24 @@ class ProduitController extends Controller
     public function showPorduct(){
         $title = 'Liste des produits';
         $categories = Categorie::with('produit')->get();
+        $produits = Produit::with('categorie')->where('id',$_GET['produit_id'])->first();
         return view('produits.show_product',[
             'title'=>$title,
             'categories'=>$categories,
+            'produits'=>$produits,
+        ]);
+    }
+
+    public function commandeProduits(){
+        $title = 'Liste des produits';
+        $categories = Categorie::with('produit')->get();
+        $produits = Produit::with('categorie')->where('id',$_GET['produit_id'])->first();
+        return view('produits.commande',[
+            'title'=>$title,
+            'categories'=>$categories,
+            'produits'=>$produits,
         ]);
     }
 }
+
+//https://laravelamit.medium.com/upload-document-and-send-in-laravel-98648014757c

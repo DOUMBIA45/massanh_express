@@ -3,37 +3,69 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Actualite;
 use App\Models\Categorie;
+use App\Models\Contact;
 use App\Models\Equipe;
+use App\Models\Newsletter;
+use App\Models\Rdv;
+use App\Models\Realisation;
 use App\Models\Service;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use function Symfony\Component\String\s;
 
 class HomePageController extends Controller{
 
     public function HomePage(){
         $services = Service::orderBy('id','asc')->get();
         $categories = Categorie::orderBy('id','asc')->get();
+        $date = '';
         return view('welcome',[
             'services'=>$services,
             'categories'=>$categories,
+            'date'=>$date,
         ]);
+    }
+
+    public function addRdv(Request $request){
+        $getrdv = Rdv::where('date_rdv',$request['date_rdv'])->get();
+        if (count($getrdv)>0){
+            return response()->json(['code'=>301]);
+        }else{
+            $rdv = new Rdv();
+            $rdv->fullName = $request['fullName'];
+            $rdv->type_entreprise = $request['type_entreprise'];
+            $rdv->email = $request['email'];
+            $rdv->telephone = $request['telephone'];
+            $rdv->date_rdv = $request['date_rdv'];
+            $rdv->heure_rdv = $request['heure_rdv'];
+            $rdv->message = $request['message'];
+            $save = $rdv->save();
+            if ($save){
+                return response()->json(['code'=>200]);
+            }
+        }
     }
 
     public function actualite(){
         $title = 'Actualité';
         $categories = Categorie::orderBy('id','asc')->get();
+        $actualites = Actualite::orderBy('id','asc')->get();
         return view('actualite',[
             'title'=>$title,
             'categories'=>$categories,
+            'actualites'=>$actualites,
         ]);
     }
 
     public function travaux(){
         $title = 'Nos travaux';
         $categories = Categorie::orderBy('id','asc')->get();
+        $realisations = Realisation::orderBy('id','asc')->get();
         return view('travaux',[
             'title'=>$title,
             'categories'=>$categories,
+            'realisations'=>$realisations,
         ]);
     }
 
@@ -75,6 +107,30 @@ class HomePageController extends Controller{
             'title'=>$title,
             'categories'=>$categories,
         ]);
+    }
+
+    public function addContact(Request $request){
+        $contacts = new Contact();
+        $contacts->fullName = $request->fullName;
+        $contacts->email = $request->email;
+        $contacts->sujet = $request->sujet;
+        $contacts->message = $request->message;
+        $save = $contacts->save();
+        if ($save){
+            return response()->json(['code'=>200]);
+        }
+    }
+
+    public function addNewLetter(Request $request){
+        $verify = Newsletter::where('email',$request->email)->get();
+        if (count($verify)>0){
+            return response()->json(['code'=>301]);
+        }else{
+            $new = new Newsletter();
+            $new->email = $request->email;
+            $new->save();
+            return response()->json(['code'=>200]);
+        }
     }
 
 

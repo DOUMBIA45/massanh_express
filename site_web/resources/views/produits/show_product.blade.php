@@ -158,32 +158,27 @@
                 <div class="wrapper row">
                     <div class="preview col-md-6">
                         <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
-                            <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-                            <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-                            <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                            <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane active" id="pic-1">
+                                <img src="{{asset(env('PRODUIT_ASSET').'/'.$produits->image_prod)}}" height="460">
+                            </div>
                         </div>
-                        <ul class="preview-thumbnail nav nav-tabs">
-                            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                            <li><a data-target="#pic-2" data-toggle="tab">
-                                    <img src="http://placekitten.com/200/126" /></a></li>
-                            <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                            <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                            <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        </ul>
 
                     </div>
                     <div class="details col-md-6">
-                        <h3 class="product-title">Nom du produit</h3>
+                        <h3 class="product-title">{{$produits->nom_produit}}</h3>
                         <div class="rating">
-                            <span class="review-no"><b>41 en stock</b></span>
+                            <span class="review-no"><b>{{$produits->qty_stock}} en stock</b></span>
                         </div>
-                        <h4 class="price">current price: <span>$180</span></h4>
-                        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                        <h4 class="price">prix du produit: <span>{{format_number($produits->prix)}}</span></h4>
+                        <p class="product-description">
+                            {!! $produits->description !!}
+                        </p>
                        <br><br><br>
                         <div class="action">
-                            <a class="add-to-cart  form-control btn btn-default bg-primary"><i class="fa fa-shopping-cart"></i> <b>Acheter</b></a>
+                            <a href="{{route('commandeProduits')}}?produit_id={{$produits->id}}&&token={{\Str::random(100)}}" class="add-to-cart  form-control btn btn-default bg-primary">
+                                <i class="fa fa-shopping-cart"></i>
+                                <b>Acheter</b>
+                            </a>
                         </div>
                     </div>
                 </div>
