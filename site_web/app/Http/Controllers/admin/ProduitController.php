@@ -11,17 +11,20 @@ use Illuminate\Support\Str;
 class ProduitController extends Controller
 {
     public function index(){
-        $produits = Produit::with('categorie')->get();
-
+        $categories= Categorie::all();
+        $produits = Produit::with('categorie')->where('categorie_id',$_GET['categorie_id'])->get();
         return view('admin.produits.index',[
-            'produits'=>$produits
+            'produits'=>$produits,
+            'categories'=>$categories,
         ]);
     }
 
     public function show_produits(){
+        $categories= Categorie::all();
         $produits = Produit::with('categorie')->where('id',$_GET['produit_id'])->orderBy('id', 'DESC')->first();
         return view('admin.produits.show',[
-            'produits'=>$produits
+            'produits'=>$produits,
+            'categories'=>$categories,
         ]);
     }
     public function update_produits(){

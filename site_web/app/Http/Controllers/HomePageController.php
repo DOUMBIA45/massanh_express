@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Actualite;
+use App\Models\Apropo;
 use App\Models\Categorie;
 use App\Models\Contact;
 use App\Models\DemandeService;
@@ -109,10 +110,12 @@ class HomePageController extends Controller{
         $title = 'A Propos de nous';
         $equipes = Equipe::orderBy('id','asc')->get();
         $categories = Categorie::orderBy('id','asc')->get();
+        $aprpos = Apropo::orderBy('id','asc')->first();
         return view('about',[
             'title'=>$title,
             'equipes'=>$equipes,
             'categories'=>$categories,
+            'aprpos'=>$aprpos,
         ]);
     }
 

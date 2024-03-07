@@ -37,7 +37,6 @@
                                         <th>Photo</th>
                                         <th>Nom</th>
                                         <th>Fonction</th>
-                                        <th>Liens</th>
                                         <th>Date Add</th>
                                         <th>Action</th>
                                     </tr>
@@ -57,11 +56,6 @@
                                                 <b>{{$equipe->fonction}}</b>
                                             </td>
                                             <td><b>{{dateToFrench($equipe->created_at)}}</b></td>
-                                            <td>
-                                               <a href="{{$equipe->l_facebook ?? '#'}}" target="_blank">Lien facebook</a><br>
-                                               <a href="{{$equipe->l_twitter ?? '#'}}" target="_blank">Lien twitter</a><br>
-                                               <a href="{{$equipe->l_linkedin ?? '#'}}" target="_blank">Lien linkedin</a>
-                                            </td>
                                             <td>
                                                 <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Etes-vous sûr ?|Cette action peut être annulée. Voulez-vous continuer ?" data-confirm-yes="deleteEquipe({{$equipe->id}})"><i class="fas fa-trash"></i></a>
                                             </td>
@@ -106,7 +100,7 @@
                                         <i class="fas fa-user"></i>
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Nom" name="nom">
+                                <input type="text" class="form-control" placeholder="Nom et prénoms" name="nom">
                             </div>
                         </div>
                         <div class="form-group">
@@ -118,39 +112,6 @@
                                     </div>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Fonction" name="fonction">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Compte Facebook</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-facebook"></i>
-                                    </div>
-                                </div>
-                                    <input type="url" class="form-control" placeholder="Compte Facebook" name="l_facebook">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Compte twitter</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-twitter"></i>
-                                    </div>
-                                </div>
-                                <input type="url" class="form-control" placeholder="Compte twitter" name="l_twitter">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Compte linkedin</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-linkedin"></i>
-                                    </div>
-                                </div>
-                                <input type="url" class="form-control" placeholder="Compte linkedin" name="l_linkedin">
                             </div>
                         </div>
                     </div>

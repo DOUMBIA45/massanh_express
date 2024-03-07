@@ -12,6 +12,14 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/dashboard',[AdminController::class,'index'])->name("admin.dashboard");
 
     Route::get('admin/contact',[AdminController::class,'contact'])->name("admin.contact");
+    Route::get('admin/apropos',[AdminController::class,'apropos'])->name("admin.apropos");
+    Route::post('admin/updateApropos',[AdminController::class,'updateApropos'])->name("admin.updateApropos");
+
+    ////////////////////// gallerie
+    Route::get('admin/galleries',[AdminController::class,'galleries'])->name('admin.galleries');
+    Route::post('admin/storeGallerie',[AdminController::class,'storeGallerie'])->name('admin.storeGallerie');
+    Route::post('admin/storeGallerieVideo',[AdminController::class,'storeGallerieVideo'])->name('admin.storeGallerieVideo');
+    Route::post('admin/deleteGalleries',[AdminController::class,'deleteGalleries'])->name('admin.deleteGalleries');
 
     ///////////////////////// ROUTE SERVICES //////////////
     Route::get('admin/services',[ServiceController::class,'services'])->name('admin.services');

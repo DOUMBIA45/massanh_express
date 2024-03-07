@@ -29,5 +29,9 @@ class VerifyCsrfToken extends Middleware
         'addContact',
         'storeCommande',
         'storeDemandeService',
+        'admin/updateApropos',
+        'admin/storeGallerie',
+        'admin/storeGallerieVideo',
+        'admin/deleteGalleries',
     ];
 }

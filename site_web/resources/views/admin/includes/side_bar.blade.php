@@ -16,25 +16,37 @@
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-newspaper"></i> <span><b>Actualité/Travaux</b></span></a>
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-shopping-basket"></i> <span><b>Produits</b></span></a>
         <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{route('admin.actualite')}}?token={{\Str::random(100)}}"><b>Actualités</b></a></li>
-            <li><a class="nav-link" href="{{route('admin.realisation')}}?token={{\Str::random(100)}}"><b>Réalisations</b></a></li>
+            @foreach($categories as $categorie)
+                <li><a class="nav-link" href="{{route('admin.produits')}}?token={{\Str::random(100)}}&&categorie_id={{$categorie->id}}">{{$categorie->category}}</a></li>
+            @endforeach
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-shopping-basket"></i> <span><b>Produits</b></span></a>
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-newspaper"></i> <span><b>Actualité/Travaux</b></span></a>
         <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{route('admin.produits')}}?token={{\Str::random(100)}}"><b>Produits</b></a></li>
-            <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-            <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+            <li><a class="nav-link" href="{{route('admin.actualite')}}?token={{\Str::random(100)}}"><b>Actualités</b></a></li>
+            <li><a class="nav-link" href="{{route('admin.realisation')}}?token={{\Str::random(100)}}"><b>Travaux</b></a></li>
         </ul>
+    </li>
+    <li>
+        <a class="nav-link" href="{{route('admin.apropos')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>A propos</b></span></a>
     </li>
     <li>
         <a class="nav-link" href="{{route('admin.equipe')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Equipe</b></span></a>
     </li>
     <li>
+        <a class="nav-link" href="{{route('admin.galleries')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Gallérie(Vidéos/Images)</b></span></a>
+    </li>
+    <li>
         <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Prise de rdv</b></span></a>
+    </li>
+    <li>
+        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-teeth"></i> <span><b>Témoignages</b></span></a>
+    </li>
+    <li>
+        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-parking"></i> <span><b>Parténaires</b></span></a>
     </li>
     <li>
         <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-envelope"></i> <span><b>Contact</b></span></a>

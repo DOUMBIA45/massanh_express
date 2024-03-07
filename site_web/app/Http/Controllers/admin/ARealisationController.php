@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categorie;
 use App\Models\Realisation;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ARealisationController extends Controller
 {
     public function realisation(){
         $realisations = Realisation::orderBy('id', 'DESC')->get();
-        return view('admin.actualite_realisation.realisations',['realisations'=>$realisations]);
+        $categories= Categorie::all();
+        return view('admin.actualite_realisation.realisations',['categories'=>$categories,'realisations'=>$realisations]);
     }
 
 

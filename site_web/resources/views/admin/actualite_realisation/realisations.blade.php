@@ -13,9 +13,9 @@
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Nos réalisations</h4>
+                        <h4>Nos travaux</h4>
                         <div class="card-header-action">
-                            <a href="#" class="btn btn-primary modal_service"><i class="fa fa-eye"></i> Ajouter une réalisation</a>
+                            <a href="#" class="btn btn-primary modal_service"><i class="fa fa-eye"></i> Ajouter un travail déjà effectué</a>
                         </div>
                     </div>
                     <div class="card-body p-0">

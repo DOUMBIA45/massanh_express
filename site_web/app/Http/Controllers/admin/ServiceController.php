@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categorie;
 use App\Models\DemandeService;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class ServiceController extends Controller
 {
     public function services(){
         $services = Service::orderBy('id', 'DESC')->get();
-        return view("admin.services.index",['services'=>$services]);
+        $categories= Categorie::all();
+        return view("admin.services.index",['services'=>$services,'categories'=>$categories]);
     }
 
     public function store_service(Request $request){
@@ -48,7 +50,8 @@ class ServiceController extends Controller
 
     public function demande_services(){
         $demandes = DemandeService::with('service')->orderByDesc('id')->get();
-        return view('admin.services.demande',['demandes'=>$demandes]);
+        $categories= Categorie::all();
+        return view('admin.services.demande',['demandes'=>$demandes,'categories'=>$categories]);
     }
 
 }

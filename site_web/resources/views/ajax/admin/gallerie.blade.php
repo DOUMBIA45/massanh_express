@@ -1,10 +1,17 @@
 <script>
     $(document).ready(()=>{
-        $('.modal_service').click(function (e){
-            $('#modal_service').modal('show')
+        $('.modal_ajouter_photo').click(function (e){
+            e.preventDefault()
+            $('#modal_ajouter_photo').modal('show')
+        })
+
+        $('.modal_ajouter_video').click(function (e){
+            e.preventDefault()
+            $('#modal_ajouter_video').modal('show')
         })
     })
 </script>
+
 <script>
     $.ajaxSetup({
         headers: {
@@ -13,38 +20,37 @@
     });
 
     $(document).ready(function(){
-        $('#UploadServices').click(function (e){
+
+        $('#UploadPhoto').click(function (e){
             e.preventDefault()
-            $("#UploadServices").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
-            $("#UploadServices").prop('disabled', false);
-            var nom = $('input[name="nom"]').val();
-            var fonction = $('input[name="fonction"]').val();
+            $("#UploadPhoto").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
+            $("#UploadPhoto").prop('disabled', false);
+            var type = $('input[name="type"]').val();
             var image_empty = $('input[name="image"]').val();
             var image = $('#image')[0].files[0];
 
-            if(nom.length == '' || fonction.length == '' || image_empty.length ==''){
-                $('#modal_service').modal('hide')
+            if(image_empty.length ==''){
+                $('#modal_ajouter_photo').modal('hide')
                 $('#errorModal').modal('show')
-                $('.errorMessage').text('Désolé, tous ces champs sont réquis')
-                $("#UploadServices").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
-                $("#UploadServices").prop('disabled', false);
+                $('.errorMessage').text('Désolé, tous ce champs est réquis')
+                $("#UploadPhoto").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                $("#UploadPhoto").prop('disabled', false);
             }else{
                 if(image){
                     var image_name = image.name;
                     var image_extension = image_name.split('.').pop().toLowerCase();
                     if (jQuery.inArray(image_extension, ['jpg', 'jpeg', 'png']) == -1) {
                         $('#merror_photo_extension').text('Fichier non autorisé, vuillez charger une bonne image(png,pjg ou jpeg)');
-                        $("#UploadServices").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
-                        $("#UploadServices").prop('disabled', false);
+                        $("#UploadPhoto").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                        $("#UploadPhoto").prop('disabled', false);
                         return false;
                     }
                 }
                 var formData = new FormData();
-                formData.append("nom",nom);
-                formData.append("fonction",fonction);
+                formData.append("type",type);
                 formData.append("image",image);
                 $.ajax({
-                    url: '{{route('admin.store_equipe')}}',
+                    url: '{{route('admin.storeGallerie')}}',
                     method: 'POST',
                     data: formData,
                     contentType: false,
@@ -53,9 +59,57 @@
                     dataType:'json',
                     success: function(data) {
                         if (data.code == 200){
-                            $('#modal_service').modal('hide')
+                            $('#modal_ajouter_photo').modal('hide')
                             $('#successModal').modal('show')
-                            $('.succesMessage').text('Féliciation, opération effectuée avec succès')
+                            $('.succesMessage').text('Opération effectuée avec succès')
+                            setTimeout(function (){
+                                window.location.reload()
+                            },4000);
+                        }
+
+                        if (data.code == 301){
+                            $('#modal_service').modal('hide')
+                            $('#errorModal').modal('show')
+                            $('.errorMessage').text('Désolé, cet nom existe déjà')
+                            setTimeout(function (){
+                                //window.location.reload()
+                            },4000);
+                        }
+                    }
+                });
+            }
+
+        })
+
+        $('#UploadVideo').click(function (e){
+            e.preventDefault()
+            $("#UploadVideo").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
+            $("#UploadVideo").prop('disabled', false);
+            var link = $('input[name="link"]').val();
+            var type = $('input[name="type"]').val();
+            if(link.length ==''){
+                $('#modal_ajouter_video').modal('hide')
+                $('#errorModal').modal('show')
+                $('.errorMessage').text('Désolé, tous ce champs est réquis')
+                $("#UploadVideo").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                $("#UploadVideo").prop('disabled', false);
+            }else{
+                var formData = new FormData();
+                formData.append("link",link);
+                formData.append("type",type);
+                $.ajax({
+                    url: '{{route('admin.storeGallerieVideo')}}',
+                    method: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType:'json',
+                    success: function(data) {
+                        if (data.code == 200){
+                            $('#modal_ajouter_video').modal('hide')
+                            $('#successModal').modal('show')
+                            $('.succesMessage').text('Opération effectuée avec succès')
                             setTimeout(function (){
                                 window.location.reload()
                             },4000);
@@ -76,11 +130,11 @@
         })
     })
 
-    function deleteEquipe(ID){
+    function deleteGallerie(ID){
         var csrf_token=$('meta[name="csrf_token"]').attr('content');
         $.ajax({
             type:'POST',
-            url:"{{route('admin.delete_equipe')}}",
+            url:"{{route('admin.deleteGalleries')}}",
             data:{
                 ID:ID,
                 '_token' :csrf_token,

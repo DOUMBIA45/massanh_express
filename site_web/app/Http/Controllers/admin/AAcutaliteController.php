@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Actualite;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class AAcutaliteController extends Controller
@@ -11,7 +12,8 @@ class AAcutaliteController extends Controller
 
     public function actualite(){
         $actualistes = Actualite::orderBy('id', 'DESC')->get();
-        return view('admin.actualite_realisation.actualites',['actualistes'=>$actualistes]);
+        $categories= Categorie::all();
+        return view('admin.actualite_realisation.actualites',['actualistes'=>$actualistes,'categories'=>$categories]);
     }
 
     public function setore_actualite(Request $request){
