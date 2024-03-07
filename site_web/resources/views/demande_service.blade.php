@@ -22,55 +22,52 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="bg-white rounded p-5">
                         <form>
+                            <input type="hidden" name="service_id" value="{{$services->id}}">
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="gname" placeholder="Nom et Prénoms"/>
-                                        <label for="gname">Nom et Prénoms</label>
+                                        <input type="text" class="form-control"  placeholder="Nom" name="nom"/>
+                                        <label for="gname">Nom</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <select class="form-control" >
-                                            <option>Type d'entreprise</option>
-                                            <option>Entreprise</option>
-                                            <option>Association</option>
-                                            <option>personnel</option>
-                                        </select>
+                                        <input type="text" class="form-control"  placeholder="Prénoms" name="prenoms"/>
+                                        <label for="gname">Prénoms</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="gmail" placeholder="Gurdian Email"/>
+                                        <input type="email" class="form-control" placeholder="E-mail" name="email"/>
                                         <label for="gmail">E-mail</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cname" placeholder="Child Name"/>
-                                        <label for="cname">Nom de la compagnie</label>
+                                        <input type="text" class="form-control"  placeholder="Numéro de téléphone" name="telephone"/>
+                                        <label for="cname">Numéro de téléphone</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="date" class="form-control" id="cage" placeholder="Child Age"/>
-                                        <label for="cage">Date rdv</label>
+                                        <input type="text" class="form-control" name="ville" placeholder=""/>
+                                        <label for="cage">Ville</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="time" class="form-control" id="cage" placeholder="Child Age"/>
-                                        <label for="cage">Heure rdv</label>
+                                        <input type="text" class="form-control" name="adresse" placeholder=""/>
+                                        <label for="cage">Adresse de la ville</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cage" placeholder="Child Age"/>
-                                        <label for="cage">Nombre de Personne</label>
+                                        <textarea type="text" class="form-control" name="description" placeholder=""></textarea>
+                                        <label for="cage">Description du service</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
+                                    <button class="btn btn-primary py-3 px-5" type="submit" id="DemanderService"><b>Demander le service</b></button>
                                 </div>
                             </div>
                         </form>
@@ -81,4 +78,8 @@
     </div>
     <!-- Appointment End -->
 @endsection
+
+@push('script')
+    @include('ajax.demande_service')
+@endpush
 

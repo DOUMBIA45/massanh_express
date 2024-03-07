@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DemandeService;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -44,4 +45,10 @@ class ServiceController extends Controller
             ]);
         }
     }
+
+    public function demande_services(){
+        $demandes = DemandeService::with('service')->orderByDesc('id')->get();
+        return view('admin.services.demande',['demandes'=>$demandes]);
+    }
+
 }

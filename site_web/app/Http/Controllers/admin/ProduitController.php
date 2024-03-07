@@ -47,7 +47,7 @@ class ProduitController extends Controller
         $produits->description = $formData['description'];
         $produits->prix = $formData['prix'];
         $produits->qty_stock = $formData['qty_stock'];
-        $produits->ref_prod = '#'.Str::random(4).''.rand( 100, 999 );;
+        $produits->ref_prod = '#'.Str::random(4).''.rand( 100, 999 );
         $produits->image_prod = UploadeFiles($formData['image_prod'],env('PRODUIT_ASSET'),735,980);
         $produits->save();
         return response()->json([

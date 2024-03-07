@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categorie extends Model
+class DemandeService extends Model
 {
     use HasFactory;
-    public function produit(){
-        return $this->hasMany(Produit::class);
-    }
 
+    public function service(){
+        return $this->belongsTo(Service::class,'service_id','id');
+    }
 }

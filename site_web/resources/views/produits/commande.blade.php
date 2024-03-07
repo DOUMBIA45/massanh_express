@@ -83,15 +83,6 @@
             -ms-flex-positive: 1;
             flex-grow: 1; }
 
-        .product-title, .price, .sizes, .colors {
-            text-transform: UPPERCASE;
-            font-weight: bold; }
-
-
-
-        .product-title, .rating, .product-description, .price {
-            margin-bottom: 15px; }
-
         .product-title {
             margin-top: 0; }
 
@@ -159,19 +150,21 @@
                     <div class="wrapper">
                         <div class="preview">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <div class="preview-pic tab-content">
                                         <div class="tab-pane active" id="pic-1">
                                             <img src="{{asset(env('PRODUIT_ASSET').'/'.$produits->image_prod)}}" height="300">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-7">
                                     <h3 class="product-title">{{$produits->nom_produit}}</h3>
                                     <div class="rating">
                                         <span class="review-no"><b>{{$produits->qty_stock}} en stock</b></span>
                                     </div>
-                                    <h4 class="price">prix du produit: <span>{{format_number($produits->prix)}}</span></h4>
+                                    <h6>prix : <span>{{format_number($produits->prix)}}</span></h6>
+                                    <h6>Sous total : <span>{{format_number($produits->prix *$_GET['qty'])}}</span></h6>
+                                    <h6 style="color: red">Total à payer : <span>{{format_number($produits->prix *$_GET['qty'])}}</span></h6>
                                     <p class="product-description">
                                         {!! $produits->description !!}
                                     </p>
@@ -181,23 +174,22 @@
                     </div>
                 </div>
                 <div class="col-md-7 wow fadeIn">
+                    <hr>
                     <div class="bg-white rounded">
                         <form>
                             <div class="row g-3">
+                                <input type="hidden" name="qty" value="{{$_GET['qty']}}">
+                                <input type="hidden" name="produit_id" value="{{$produits->id}}">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
-                                        <label for="gname">Nom et Prénoms</label>
+                                        <input type="text" class="form-control"  placeholder="Nom" name="nom"/>
+                                        <label for="gname">Nom</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <select class="form-control" name="type_entreprise">
-                                            <option value="A">Type d'entreprise</option>
-                                            <option>Entreprise</option>
-                                            <option>Association</option>
-                                            <option>personnel</option>
-                                        </select>
+                                        <input type="text" class="form-control"  placeholder="Prénoms" name="prenoms"/>
+                                        <label for="gname">Prénoms</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -214,24 +206,18 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="date" class="form-control" name="date_rdv"/>
-                                        <label for="cage">Date rdv</label>
+                                        <input type="text" class="form-control" name="ville" placeholder=""/>
+                                        <label for="cage">Ville</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="time" class="form-control" name="heure_rdv"/>
-                                        <label for="cage">Heure rdv</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-floating">
-                                        <textarea type="text" class="form-control" name="message"></textarea>
-                                        <label for="cage">Nombre de Personne</label>
+                                        <input type="text" class="form-control" name="adresse" placeholder=""/>
+                                        <label for="cage">Adresse de la ville</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit" id="RDV"><b>Prendre RDV</b></button>
+                                    <button class="btn btn-primary py-3 px-5" type="submit" id="Commande"><b>Passer la commande</b></button>
                                 </div>
                             </div>
                         </form>
@@ -241,3 +227,7 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    @include('ajax.commande')
+@endpush

@@ -12,4 +12,8 @@ class Produit extends Model
     public function categorie(){
         return $this->belongsTo(Categorie::class,'categorie_id','id');
     }
+
+    public function commande(){
+        return $this->hasMany(Commande::class);
+    }
 }

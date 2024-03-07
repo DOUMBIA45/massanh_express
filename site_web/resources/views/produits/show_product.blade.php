@@ -5,47 +5,7 @@
 
 @section('content')
     <style>
-        img {
-            max-width: 100%;
-        }
 
-        .preview {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column; }
-        @media screen and (max-width: 996px) {
-            .preview {
-                margin-bottom: 20px; } }
-
-        .preview-pic {
-            -webkit-box-flex: 1;
-            -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1; }
-
-        .preview-thumbnail.nav-tabs {
-            border: none;
-            margin-top: 15px; }
-        .preview-thumbnail.nav-tabs li {
-            width: 18%;
-            margin-right: 2.5%; }
-        .preview-thumbnail.nav-tabs li img {
-            max-width: 100%;
-            display: block; }
-        .preview-thumbnail.nav-tabs li a {
-            padding: 0;
-            margin: 0; }
-        .preview-thumbnail.nav-tabs li:last-of-type {
-            margin-right: 0; }
-
-        .tab-content {
-            overflow: hidden; }
         .tab-content img {
             width: 100%;
             -webkit-animation-name: opacity;
@@ -110,26 +70,6 @@
             background: #b36800;
             color: #fff; }
 
-        .not-available {
-            text-align: center;
-            line-height: 2em; }
-        .not-available:before {
-            font-family: fontawesome;
-            content: "\f00d";
-            color: #fff; }
-
-        .orange {
-            background: #ff9f1a; }
-
-        .green {
-            background: #85ad00; }
-
-        .blue {
-            background: #0076ad; }
-
-        .tooltip-inner {
-            padding: 1.3em; }
-
         @-webkit-keyframes opacity {
             0% {
                 opacity: 0;
@@ -173,16 +113,50 @@
                         <p class="product-description">
                             {!! $produits->description !!}
                         </p>
-                       <br><br><br>
-                        <div class="action">
-                            <a href="{{route('commandeProduits')}}?produit_id={{$produits->id}}&&token={{\Str::random(100)}}" class="add-to-cart  form-control btn btn-default bg-primary">
-                                <i class="fa fa-shopping-cart"></i>
-                                <b>Acheter</b>
-                            </a>
-                        </div>
+                        <form>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Quantité du produit</label>
+                                    <select class="form-control" name="qty">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="action">
+                                <button id="form" class="add-to-cart  form-control btn btn-default bg-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <b style="color: white">Acheter</b>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        $('#form').click((e)=>{
+            e.preventDefault()
+            var qty = $('select[name="qty"]').val();
+            $("#form").empty().append('<i class="fa fa-spinner fa-spin"></i> Patientez svp...');
+            $("#form").prop('disabled', false);
+            setTimeout(()=>{
+                window.location.assign('{{route('commandeProduits')}}?produit_id={{$produits->id}}&&token={{\Str::random(100)}}&&qty='+qty+'')
+            },2000)
+        })
+    </script>
+@endpush

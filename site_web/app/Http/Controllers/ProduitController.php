@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Commande;
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProduitController extends Controller
 {
@@ -39,6 +41,22 @@ class ProduitController extends Controller
             'categories'=>$categories,
             'produits'=>$produits,
         ]);
+    }
+
+    public function storeCommande(Request $request){
+        $commande = new Commande();
+        $commande->produit_id = $request->produit_id;
+        $commande->qty = $request->qty;
+        $commande->nom = $request->nom;
+        $commande->prenoms = $request->prenoms;
+        $commande->email = $request->email;
+        $commande->telephone = $request->telephone;
+        $commande->ville = $request->ville;
+        $commande->adresse = $request->adresse;
+        $commande->ref_commande ='#'.Str::random(4).''.rand( 100, 999 );
+        $commande->status = 'Soumis';
+        $commande->save();
+        return response()->json(['code'=>200]);
     }
 }
 

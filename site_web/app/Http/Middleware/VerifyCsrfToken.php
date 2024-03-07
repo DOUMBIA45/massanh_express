@@ -27,5 +27,7 @@ class VerifyCsrfToken extends Middleware
         'addRdv',
         'addNewLetter',
         'addContact',
+        'storeCommande',
+        'storeDemandeService',
     ];
 }

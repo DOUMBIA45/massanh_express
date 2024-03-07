@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Actualite;
 use App\Models\Categorie;
 use App\Models\Contact;
+use App\Models\DemandeService;
 use App\Models\Equipe;
 use App\Models\Newsletter;
 use App\Models\Rdv;
@@ -89,6 +90,21 @@ class HomePageController extends Controller{
             'categories'=>$categories,
         ]);
     }
+
+    public function storeDemandeService(Request $request){
+        $services = new DemandeService();
+        $services->service_id = $request->service_id;
+        $services->nom = $request->nom;
+        $services->prenoms = $request->prenoms;
+        $services->email = $request->email;
+        $services->telephone = $request->telephone;
+        $services->ville = $request->ville;
+        $services->adresse = $request->adresse;
+        $services->description = $request->description;
+        $services->save();
+        return response()->json(['code'=>200]);
+    }
+
     public function about(){
         $title = 'A Propos de nous';
         $equipes = Equipe::orderBy('id','asc')->get();

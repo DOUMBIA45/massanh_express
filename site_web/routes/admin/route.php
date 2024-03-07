@@ -11,10 +11,13 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/dashboard',[AdminController::class,'index'])->name("admin.dashboard");
 
+    Route::get('admin/contact',[AdminController::class,'contact'])->name("admin.contact");
+
     ///////////////////////// ROUTE SERVICES //////////////
     Route::get('admin/services',[ServiceController::class,'services'])->name('admin.services');
     Route::post('admin/store_service',[ServiceController::class,'store_service'])->name('admin.store_service');
     Route::post('admin/delete_services',[ServiceController::class,'delete_services'])->name('admin.delete_services');
+    Route::get('admin/demande_services',[ServiceController::class,'demande_services'])->name('admin.demande_services');
 
     /////////////// ACTUALITE
     Route::get('admin/actualite',[AAcutaliteController::class,'actualite'])->name('admin.actualite');

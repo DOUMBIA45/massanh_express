@@ -8,8 +8,12 @@
     <li class="dropdown active">
         <a href="{{route('admin.dashboard')}}?token={{\Str::random(100)}}" class="nav-link"><span>Dashboard</span></a>
     </li>
-    <li>
-        <a class="nav-link" href="{{route('admin.services')}}?token={{\Str::random(100)}}"><i class="fa fa-server"></i> <span><b>Services</b></span></a>
+    <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-server"></i> <span><b>Services</b></span></a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link" href="{{route('admin.services')}}?token={{\Str::random(100)}}"><b>Liste services</b></a></li>
+            <li><a class="nav-link" href="{{route('admin.demande_services')}}?token={{\Str::random(100)}}"><b>Demandes de services</b></a></li>
+        </ul>
     </li>
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-newspaper"></i> <span><b>Actualité/Travaux</b></span></a>
@@ -30,6 +34,9 @@
         <a class="nav-link" href="{{route('admin.equipe')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Equipe</b></span></a>
     </li>
     <li>
-        <a class="nav-link" href="blank.html"><i class="fa fa-envelope"></i> <span><b>Contact</b></span></a>
+        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Prise de rdv</b></span></a>
+    </li>
+    <li>
+        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-envelope"></i> <span><b>Contact</b></span></a>
     </li>
 </ul>
