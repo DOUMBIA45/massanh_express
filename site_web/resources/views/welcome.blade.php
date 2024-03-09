@@ -2,7 +2,6 @@
 @section('title')
  Accueil
 @endsection
-
 @section('content')
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -69,10 +68,10 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative overflow-hidden rounded ps-5 pt-5 h-100" style="min-height: 400px">
-                        <img class="position-absolute w-100 h-100" src="{{asset('assets/img/bienvenue.jpg')}}" alt="" style="object-fit: cover"/>
+                        <img class="position-absolute w-100 h-100" src="{{asset('assets/img/'.$aprpos->logo)}}" alt="" style="object-fit: cover"/>
                         <div class="position-absolute top-0 start-0 bg-white rounded pe-3 pb-3" style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary rounded h-100 p-3">
-                                <h1 class="text-white mb-0">{{getAge(date('2017/01/01'))}}</h1>
+                                <h1 class="text-white mb-0">{{getAge($aprpos->anne_creation)}}</h1>
                                 <h5 class="text-white mb-0">d'experience</h5>
                             </div>
                         </div>
@@ -80,9 +79,9 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <h1 class="display-6 mb-5">BIENVENUE A MASSANANH EXPERTIZ</h1>
+                        <h1 class="display-6 mb-4">PRÉSENTATION DE MASSANANH EXPERTIZ</h1>
                         <p class="fs-5 mb-4">
-                            <b>MASSANANH EXPERTIZ</b> est une entreprise de construction hospitalier - Fourniture, installation, formation et mise en service d'équipements biomédicaux - Fourniture de consommables biomédicaux, Fabrication, vente, Distribution de tout produits pharmaceutiques et équipements biomédicaux - Fourniture de bureaux et mobilier biomédicaux - Représentation et importation pour le compte de sociétés locales et étrangères.
+                            {!! $aprpos->presenation_massanh !!}
                         </p>
                     </div>
                 </div>
@@ -97,13 +96,10 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 facts-text wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 px-4 ps-lg-0">
-                        <h1 class="text-white mb-4">For Individuals And Organisations</h1>
+                        <h1 class="text-white mb-4">Nos côtes de popularité</h1>
                         <p class="text-light mb-5">
-                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                            Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                            sed stet lorem sit clita duo justo magna dolore erat amet
+                            Des preuves qui attestent que nous existons longtemps et sommes connus par un grand nombre de la population
                         </p>
-                        <a href="" class="align-self-start btn btn-secondary py-3 px-5">More Details</a>
                     </div>
                 </div>
                 <div class="col-lg-6 facts-counter wow fadeIn" data-wow-delay="0.5s">
@@ -111,19 +107,19 @@
                         <div class="row g-5">
                             <div class="col-sm-6">
                                 <h1 class="display-5" data-toggle="counter-up">1234</h1>
-                                <p class="fs-5 text-primary">Happy Clients</p>
+                                <p class="fs-5 text-primary">clients satisfaits</p>
                             </div>
                             <div class="col-sm-6">
                                 <h1 class="display-5" data-toggle="counter-up">1234</h1>
-                                <p class="fs-5 text-primary">Projects Succeed</p>
+                                <p class="fs-5 text-primary">Projets réalisés</p>
                             </div>
                             <div class="col-sm-6">
                                 <h1 class="display-5" data-toggle="counter-up">1234</h1>
-                                <p class="fs-5 text-primary">Awards Achieved</p>
+                                <p class="fs-5 text-primary">Followers Facebook</p>
                             </div>
                             <div class="col-sm-6">
                                 <h1 class="display-5" data-toggle="counter-up">1234</h1>
-                                <p class="fs-5 text-primary">Team Members</p>
+                                <p class="fs-5 text-primary">Abonnés Youtube</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +133,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto" style="max-width: 500px">
-                <h1 class="display-6 mb-5">Prestations de services</h1>
+                <h1 class="display-6 mb-5">Nos prestations de services</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach($services as $service)
@@ -155,7 +151,9 @@
                     </div>
                 @endforeach
             </div><br>
-            <a class="btn btn-primary float-end p-3" href="{{route('services')}}?token={{\Str::random(100)}}"><b>Voir plus</b></a>
+            <center>
+                <a class="btn btn-primary  p-3" href="{{route('services')}}?token={{\Str::random(100)}}" style="width: 20rem"><b>Voir plus</b></a>
+            </center>
         </div>
     </div>
     <!-- Service End -->
@@ -164,9 +162,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
                     <h1 class="display-6 text-white mb-5">Nous sommes une entreprise de construction hospitalière</h1>
-                    <p class="text-white mb-5">
-                        Pour tous vos conseils, suivi et construction hospitalière, veuillez prendre rendez avec nos experts du domaine.
-                    </p>
+                    <p class="text-white mb-5">Pour tous vos conseils, suivi et construction hospitalière, veuillez prendre rendez avec nos experts du domaine.</p>
                     <div class="bg-white rounded p-3">
                         <div class="d-flex align-items-center bg-primary rounded p-3">
                             <img class="flex-shrink-0 rounded-circle me-3" src="{{asset('asset/img/profile.jpg')}}" alt=""/>
@@ -181,17 +177,29 @@
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
-                                        <label for="gname">Nom et Prénoms</label>
+                                        <label for="gname">Nom</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
+                                        <label for="gname">Prénoms</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <select class="form-control" name="type_entreprise">
-                                            <option value="A">Type d'entreprise</option>
+                                            <option value="A">Type de structure</option>
                                             <option>Entreprise</option>
                                             <option>Association</option>
                                             <option>personnel</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control"  placeholder="Nom de la structure" name="fullName"/>
+                                        <label for="gname">Nom de la structure</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -221,11 +229,11 @@
                                 <div class="col-sm-12">
                                     <div class="form-floating">
                                         <textarea type="text" class="form-control" name="message"></textarea>
-                                        <label for="cage">Nombre de Personne</label>
+                                        <label for="cage">Objet du RDV (objet du Rendez-vous)</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit" id="RDV"><b>Prendre RDV</b></button>
+                                    <button class="btn btn-primary py-3 px-5" type="submit" id="RDV"><b>Confirmer RDV</b></button>
                                 </div>
                             </div>
                         </form>
@@ -251,42 +259,13 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="owl-carousel testimonial-carousel">
-                        <div class="testimonial-item text-center">
-                            <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t1.png')}}" alt=""/>
-                            <p class="fs-5">
-                                Bravo Massananh Expertiz
-                                J’ai vu le CHR DE MAN les travaux sont à la hauteur des équipements…merci de présenter ces équipements et qui j’espère seront utilisés en bon usage pour ces DG différents établissements hospitaliers pour le bien être de la collectivité.
-                            </p>
-                            <h5>Vanly TIENE</h5>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t2.png')}}" alt=""/>
-                            <p class="fs-5">
-                                Seuls les actes parlent. Mes vives et chaleureuses félicitations. Massananh Expertiz un jour, Massananh Expertiz toujours.
-                            </p>
-                            <h5>Denis EFFI</h5>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t3.png')}}" alt=""/>
-                            <p class="fs-5">
-                                Félicitations à vous Monsieur le Directeur de MASSANANH EXPERTIZ et à toute votre équipe pour ce beau boulot abattu.
-                            </p>
-                            <h5>Regi Tendance</h5>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t4.png')}}" alt=""/>
-                            <p class="fs-5">
-                                Ça va vite avec Massananh expertiz.
-                            </p>
-                            <h5>Williams ATSE</h5>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <img class="img-fluid rounded mx-auto mb-4" src="{{asset('assets/img/temoignage/t5.png')}}" alt=""/>
-                            <p class="fs-5">
-                                Meilleure des Meilleures entreprises en matière de services biomedicales. Testez et vous verez.
-                            </p>
-                            <h5>David YAO</h5>
-                        </div>
+                        @foreach($temoignages as $temoignage)
+                            <div class="testimonial-item text-center">
+                                <img class="img-fluid rounded mx-auto mb-4" src="{{asset(env('TEMOIGNAGE_ASSET').'/'.$temoignage->photo)}}" alt=""/>
+                                <p class="fs-5">{{$temoignage->description}}</p>
+                                <h5>{{$temoignage->nom}}</h5>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-3 d-none d-lg-block">
@@ -303,65 +282,29 @@
     <hr>
     <div class="container py-2">
         <div class="text-center mx-auto" style="max-width: 500px">
-            <h1 class="display-6 mb-5">Nos Partenaires</h1>
+            <h1 class="display-6 mb-2">Nos Partenaires</h1>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="lc-block">
-                    <div id="carouselLogos" class="carousel slide pt-5 pb-4" data-bs-ride="carousel">
+                    <div id="carouselLogos" class="carousel slide pt-5 pb-2" data-bs-ride="carousel">
                         <div class="carousel-inner px-5">
-                            <div class="carousel-item active">
+                            @foreach($partenaires as $key =>$partenaire)
+                            <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                                 <div class="row justify-content-center">
-                                    <div class="col-6 col-lg-2 align-self-center">
-                                        <img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
+                                    <div class="col-6 col-lg-2  align-self-center">
+                                        <img class="d-block w-100 px-3  mb-3" src="{{asset(env('PARTENAIRE_ASSET').'/'.$partenaire->image)}}" alt="">
+                                        <h4 class="text-center">{{$partenaire->titre}}</h4>
                                     </div>
                                     <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
+                                        <img class="d-block w-100 px-3  mb-3" src="{{asset(env('PARTENAIRE_ASSET').'/'.$partenaire->image)}}" alt="">
+                                        <h4 class="text-center">{{$partenaire->titre}}</h4>
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="row justify-content-center">
-                                    <div class="col-6 col-lg-2 align-self-center">
-                                        <img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row justify-content-center">
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row justify-content-center">
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
-                                        <h4 class="text-center">Titre</h4>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
+
                         <div class="w-100 px-3 text-center mt-4">
                             <a class="carousel-control-prev position-relative d-inline me-4" href="#carouselLogos" data-bs-slide="prev">
                                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="text-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

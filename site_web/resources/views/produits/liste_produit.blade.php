@@ -5,107 +5,7 @@
 
 @section('content')
     <style>
-        body {
-            background-color: #eee
-        }
-        .t-products {
-            background-image: linear-gradient(to right top, #13357b, #5625cb, #13357b, #551ae0, #13357b);
-            color: #fff;
-            border-radius: 3px
-        }
-
-        .processor {
-            background-color: #fff;
-            margin-top: 5px;
-            border-bottom: 1px solid #eee
-        }
-
-        .brand {
-            background-color: #fff;
-            border-bottom: 1px solid #eee
-        }
-
-        .type {
-            background-color: #fff
-        }
-
-        .product {
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 5px;
-            position: relative
-        }
-
-        .about span {
-            color: #13357b;
-            font-size: 16px
-        }
-
-        .cart-button button {
-            font-size: 12px;
-            color: #fff;
-            background-color: #13357b;
-            height: 38px
-        }
-
-        .cart-button button:focus,
-        button:active {
-            font-size: 12px;
-            color: #fff;
-            background-color: #13357b;
-            box-shadow: none
-        }
-
-        .product_fav i {
-            line-height: 40px;
-            color: #13357b;
-            font-size: 15px
-        }
-
-        .product_fav {
-            display: inline-block;
-            width: 36px;
-            height: 39px;
-            background: #FFFFFF;
-            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 11%;
-            text-align: center;
-            cursor: pointer;
-            margin-left: 3px;
-            -webkit-transition: all 200ms ease;
-            -moz-transition: all 200ms ease;
-            -ms-transition: all 200ms ease;
-            -o-transition: all 200ms ease;
-            transition: all 200ms ease
-        }
-
-        .product_fav:hover {
-            background: #13357b
-        }
-
-        .product_fav:hover i {
-            color: #fff
-        }
-
-        .about {
-            margin-top: 12px
-        }
-
-        .off {
-            position: absolute;
-            left: 65%;
-            top: 6%;
-            width: 80px;
-            text-align: center;
-            height: 30px;
-            line-height: 8px;
-            border-radius: 5px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff
-        }
+        body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}
     </style>
     <!-- Packages Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -137,28 +37,42 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="row g-4">
-                        @foreach($produits->produit as $produit)
-                            <div class="col-md-4">
-                                <div class="product py-4">
-                                    <span class="off bg-warning">- {{$produit->promotion}} %</span>
-                                    <div class="text-center">
-                                        <img src="{{asset(env('PRODUIT_ASSET').'/'.$produit->image_prod)}}" width="200">
+                    <div class="container mt-5 mb-5">
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-md-10">
+                                @foreach($produits->produit as $produit)
+                                <div class="row mt-3 bg-white border rounded">
+                                    <div class="col-md-3 mt-1">
+                                        <img class="img-fluid img-responsive rounded product-image" src="{{asset(env('PRODUIT_ASSET').'/'.$produit->image_prod)}}" style="height: 160px">
                                     </div>
-                                    <div class="about text-center">
+                                    <div class="col-md-6 mt-1">
                                         <h5>{{$produit->nom_produit}}</h5>
+                                        <div class="d-flex flex-row">
+                                            <div class="ratings mr-2">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-1 mb-1 spec-1 btn btn-primary"><span>- {{$produit->promotion}}%</span></div>
+
+                                        <p class="text-justify text-truncate para mb-0">
+                                            {!! $produit->description !!}
+                                            <br></p>
                                     </div>
-                                    <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-primary text-uppercase" href="{{route('showPorduct')}}?produit_id={{$produit->id}}&&token={{\Str::random(100)}}">
-                                            <i class="fa fa-eye"></i> <b>Voir plus</b>
-                                        </a>
-                                        <div class="add">
-                                            <span class="text-primary"><b>{{format_number($produit->prix)}}</b></span>
+                                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                        <div class="d-flex flex-row align-items-center mt-4">
+                                            <h5 class="mr-1">{{format_number($produit->prix)}}</h5>
+                                        </div>
+                                        <div class="d-flex flex-column mt-4">
+                                            <a href="{{route('showPorduct')}}?produit_id={{$produit->id}}&&token={{\Str::random(100)}}" class="btn btn-primary btn-sm mt-4" type="button"><i class="fa fa-eye"></i> Voir plus</a>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

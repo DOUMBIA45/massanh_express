@@ -40,13 +40,13 @@
         <a class="nav-link" href="{{route('admin.galleries')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Gallérie(Vidéos/Images)</b></span></a>
     </li>
     <li>
-        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Prise de rdv</b></span></a>
+        <a class="nav-link" href="{{route('admin.priseRDV')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Prise de rdv</b></span></a>
     </li>
     <li>
-        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-teeth"></i> <span><b>Témoignages</b></span></a>
+        <a class="nav-link" href="{{route('admin.temoignages')}}?token={{\Str::random(100)}}"><i class="fa fa-teeth"></i> <span><b>Témoignages</b></span></a>
     </li>
     <li>
-        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-parking"></i> <span><b>Parténaires</b></span></a>
+        <a class="nav-link" href="{{route('admin.partenaires')}}?token={{\Str::random(100)}}"><i class="fa fa-parking"></i> <span><b>Parténaires</b></span></a>
     </li>
     <li>
         <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-envelope"></i> <span><b>Contact</b></span></a>

@@ -7,12 +7,15 @@ use App\Models\Apropo;
 use App\Models\Categorie;
 use App\Models\Contact;
 use App\Models\Gallerie;
+use App\Models\Partenaire;
+use App\Models\Temoignage;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.dashboard');
+        $categories = Categorie::with('produit')->get();
+        return view('admin.dashboard',['categories'=>$categories]);
     }
 
     public function contact(){
@@ -79,6 +82,54 @@ class AdminController extends Controller
         }
     }
 
+    public function temoignages(){
+        $categories = Categorie::with('produit')->get();
+        $temoignages = Temoignage::orderBy('id','asc')->get();
+        return view('admin.temoignages',['categories'=>$categories,'temoignages'=>$temoignages]);
+    }
 
+    public function storeTemoignages(Request $request){
+        $formData = $request->all();
+        $temoignages = new Temoignage();
+        $temoignages->nom = $formData['nom'];
+        $temoignages->photo = UploadeFiles($formData['image'],env('TEMOIGNAGE_ASSET'),720,724);
+        $temoignages->description = $formData['description'];
+        $temoignages->save();
+        return response()->json(['code'=>200]);
+    }
+
+    public function deleteTemoignages(Request $request){
+        $delete = Temoignage::where('id',$request->ID)->delete(['id'=>$request->ID]);
+        if ($delete){
+            return response()->json(['code'=>200]);
+        }
+    }
+
+    public function priseRDV(){
+        $categories = Categorie::with('produit')->get();
+        return view('admin.priserdv',['categories'=>$categories]);
+    }
+
+    public function partenaires(){
+        $categories = Categorie::with('produit')->get();
+        $partenaires = Partenaire::orderBy('id','asc')->get();
+        return view('admin.partenaires',['categories'=>$categories,'partenaires'=>$partenaires]);
+    }
+
+    public function storePartenaire(Request $request){
+        $formData = $request->all();
+        $partenaires = new Partenaire();
+        $partenaires->titre = $formData['titre'];
+        $partenaires->image = UploadeFiles($formData['image'],env('PARTENAIRE_ASSET'),320,91);
+        $partenaires->save();
+        return response()->json(['code'=>200]);
+    }
+
+    public function deletePartenaire(Request $request){
+        $delete = Partenaire::where('id',$request->ID)->delete(['id'=>$request->ID]);
+        if ($delete){
+            return response()->json(['code'=>200]);
+        }
+    }
 
 }

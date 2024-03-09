@@ -21,6 +21,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/storeGallerieVideo',[AdminController::class,'storeGallerieVideo'])->name('admin.storeGallerieVideo');
     Route::post('admin/deleteGalleries',[AdminController::class,'deleteGalleries'])->name('admin.deleteGalleries');
 
+    Route::get('admin/temoignages',[AdminController::class,'temoignages'])->name('admin.temoignages');
+    Route::post('admin/storeTemoignages',[AdminController::class,'storeTemoignages'])->name('admin.storeTemoignages');
+    Route::post('admin/deleteTemoignages',[AdminController::class,'deleteTemoignages'])->name('admin.deleteTemoignages');
+
+    Route::get('admin/priseRDV',[AdminController::class,'priseRDV'])->name('admin.priseRDV');
+
+    Route::get('admin/partenaires',[AdminController::class,'partenaires'])->name('admin.partenaires');
+    Route::post('admin/storePartenaire',[AdminController::class,'storePartenaire'])->name('admin.storePartenaire');
+    Route::post('admin/deletePartenaire',[AdminController::class,'deletePartenaire'])->name('admin.deletePartenaire');
+
     ///////////////////////// ROUTE SERVICES //////////////
     Route::get('admin/services',[ServiceController::class,'services'])->name('admin.services');
     Route::post('admin/store_service',[ServiceController::class,'store_service'])->name('admin.store_service');

@@ -24,6 +24,8 @@ class VerifyCsrfToken extends Middleware
         'admin/store_produits',
         'admin/store_update_produits',
         'admin/delete_produits',
+        'admin/storePartenaire',
+        'admin/deletePartenaire',
         'addRdv',
         'addNewLetter',
         'addContact',
@@ -33,5 +35,7 @@ class VerifyCsrfToken extends Middleware
         'admin/storeGallerie',
         'admin/storeGallerieVideo',
         'admin/deleteGalleries',
+        'admin/storeTemoignages',
+        'admin/deleteTemoignages',
     ];
 }

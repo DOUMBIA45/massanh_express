@@ -34,6 +34,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8 wow fadeIn" data-wow-delay="0.1s">
+                    <h4 class="display-6 mb-5 text-center">Laissez-nous votre message </h4>
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">

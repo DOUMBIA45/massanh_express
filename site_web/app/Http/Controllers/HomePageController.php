@@ -10,9 +10,11 @@ use App\Models\Contact;
 use App\Models\DemandeService;
 use App\Models\Equipe;
 use App\Models\Newsletter;
+use App\Models\Partenaire;
 use App\Models\Rdv;
 use App\Models\Realisation;
 use App\Models\Service;
+use App\Models\Temoignage;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\s;
 
@@ -21,11 +23,15 @@ class HomePageController extends Controller{
     public function HomePage(){
         $services = Service::orderBy('id','asc')->get();
         $categories = Categorie::orderBy('id','asc')->get();
-        $date = '';
+        $aprpos = Apropo::orderBy('id','asc')->first();
+        $partenaires = Partenaire::orderBy('id','asc')->get();
+        $temoignages = Temoignage::orderBy('id','asc')->get();
         return view('welcome',[
             'services'=>$services,
             'categories'=>$categories,
-            'date'=>$date,
+            'aprpos'=>$aprpos,
+            'partenaires'=>$partenaires,
+            'temoignages'=>$temoignages,
         ]);
     }
 
