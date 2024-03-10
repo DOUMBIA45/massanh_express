@@ -150,14 +150,14 @@
                     <div class="wrapper">
                         <div class="preview">
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="preview-pic tab-content">
                                         <div class="tab-pane active" id="pic-1">
                                             <img src="{{asset(env('PRODUIT_ASSET').'/'.$produits->image_prod)}}" height="300">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <h3 class="product-title">{{$produits->nom_produit}}</h3>
                                     <div class="rating">
                                         <span class="review-no"><b>{{$produits->qty_stock}} en stock</b></span>

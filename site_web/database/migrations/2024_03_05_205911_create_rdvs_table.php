@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullName');
             $table->string('type_entreprise');
+            $table->string('nom_structure');
             $table->string('email');
             $table->string('telephone');
             $table->string('date_rdv');

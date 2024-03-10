@@ -26,7 +26,10 @@
                     <a href="{{route('travaux')}}?token={{\Str::random(100)}}" class="dropdown-item">Travaux</a>
                 </div>
             </div>
-            <a href="{{route('about')}}?token={{\Str::random(100)}}" class="nav-item nav-link {{Route::current()->getName() == 'about' ? 'active':'' }}">A Propos</a>
+            <a href="{{route('galleries')}}?token={{\Str::random(100)}}" class="nav-item nav-link {{Route::current()->getName() == 'galleries' ? 'active' : '' }}">Gallérie</a>
+
+            <a href="{{route('about')}}?token={{\Str::random(100)}}" class="nav-item nav-link {{Route::current()->getName() == 'about' ? 'active' : '' }}">A Propos</a>
+
             <a href="{{route('contact')}}?token={{\Str::random(100)}}" class="nav-item nav-link {{Route::current()->getName() == 'contact' ? 'active':'' }}">Contact</a>
         </div>
     </div>

@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-danger modal_close">Fermer</button>
                         <button type="submit" id="AddPartenaires" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
@@ -101,5 +101,13 @@
 @endsection
 
 @push('script')
+    <script>
+        $(document).ready(function (){
+            $('.modal_close').click((e)=>{
+                e.preventDefault()
+                $('#modal_parténaire').modal('hide')
+            })
+        });
+    </script>
     @include('ajax.admin.partenaire')
 @endpush

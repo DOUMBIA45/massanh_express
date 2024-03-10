@@ -30,5 +30,6 @@
 
 <!-- General JS Scripts -->
 @include('admin.includes.script')
+
 </body>
 </html>

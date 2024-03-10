@@ -32,7 +32,8 @@
             "app/Helpers/separe_helpers.php",
             "app/Helpers/format_date_helpers.php",
             "app/Helpers/notifications_push.php",
-            "app/Helpers/upload_files.php"
+            "app/Helpers/upload_files.php",
+            "app/Helpers/sendMail.php"
         ]
     },
     "autoload-dev": {

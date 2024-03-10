@@ -79,9 +79,9 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <h1 class="display-6 mb-4">PRÉSENTATION DE MASSANANH EXPERTIZ</h1>
+                        <h1 class="display-6 mb-4">BIENVENUE A MASSANANH EXPERTIZ</h1>
                         <p class="fs-5 mb-4">
-                            {!! $aprpos->presenation_massanh !!}
+                            <b>MASSANANH EXPERTIZ</b> est une entreprise de construction hospitalier - Fourniture, installation, formation et mise en service d'équipements biomédicaux - Fourniture de consommables biomédicaux, Fabrication, vente, Distribution de tout produits pharmaceutiques et équipements biomédicaux - Fourniture de bureaux et mobilier biomédicaux - Représentation et importation pour le compte de sociétés locales et étrangères.
                         </p>
                     </div>
                 </div>
@@ -106,19 +106,19 @@
                     <div class="h-100 px-4 pe-lg-0">
                         <div class="row g-5">
                             <div class="col-sm-6">
-                                <h1 class="display-5" data-toggle="counter-up">1234</h1>
+                                <h1 class="display-5" data-toggle="counter-up">{{$populairties->client_satisfaits}}</h1>
                                 <p class="fs-5 text-primary">clients satisfaits</p>
                             </div>
                             <div class="col-sm-6">
-                                <h1 class="display-5" data-toggle="counter-up">1234</h1>
+                                <h1 class="display-5" data-toggle="counter-up">{{$populairties->projet_realises}}</h1>
                                 <p class="fs-5 text-primary">Projets réalisés</p>
                             </div>
                             <div class="col-sm-6">
-                                <h1 class="display-5" data-toggle="counter-up">1234</h1>
+                                <h1 class="display-5" data-toggle="counter-up">{{$populairties->follower_acebook}}</h1>
                                 <p class="fs-5 text-primary">Followers Facebook</p>
                             </div>
                             <div class="col-sm-6">
-                                <h1 class="display-5" data-toggle="counter-up">1234</h1>
+                                <h1 class="display-5" data-toggle="counter-up">{{$populairties->abonne_youtube}}</h1>
                                 <p class="fs-5 text-primary">Abonnés Youtube</p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
         <div class="container py-2">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-6 text-white mb-5">Nous sommes une entreprise de construction hospitalière</h1>
+                    <h1 class="display-6 text-white mb-5">PRISE DE RENDEZ-VOUS AVEC NOS EXPERTS</h1>
                     <p class="text-white mb-5">Pour tous vos conseils, suivi et construction hospitalière, veuillez prendre rendez avec nos experts du domaine.</p>
                     <div class="bg-white rounded p-3">
                         <div class="d-flex align-items-center bg-primary rounded p-3">
@@ -176,13 +176,13 @@
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
+                                        <input type="text" class="form-control"  placeholder="Nom" name="nom"/>
                                         <label for="gname">Nom</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="fullName"/>
+                                        <input type="text" class="form-control"  placeholder="Nom et Prénoms" name="prenoms"/>
                                         <label for="gname">Prénoms</label>
                                     </div>
                                 </div>
@@ -190,15 +190,16 @@
                                     <div class="form-floating">
                                         <select class="form-control" name="type_entreprise">
                                             <option value="A">Type de structure</option>
-                                            <option>Entreprise</option>
-                                            <option>Association</option>
-                                            <option>personnel</option>
+                                            <option value="Entreprise">Entreprise</option>
+                                            <option value="Association">Association</option>
+                                            <option value="personnel">personnel</option>
+                                            <option value="ONG">ONG</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control"  placeholder="Nom de la structure" name="fullName"/>
+                                        <input type="text" class="form-control"  placeholder="Nom de la structure" name="nom_structure"/>
                                         <label for="gname">Nom de la structure</label>
                                     </div>
                                 </div>
@@ -243,6 +244,31 @@
         </div>
     </div>
 
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto" style="max-width: 500px">
+                <h1 class="display-6 mb-5"><b>Notre équipe</b></h1>
+            </div>
+            <div class="row g-4">
+                @foreach($equipes as $equipe)
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.{{$equipe->id}}s">
+                        <div class="team-item rounded">
+                            <img class="img-fluid" src="{{asset(env('EQUIPE_ASSET').'/'.$equipe->image)}}" alt="" style="height: 20rem;width: 29rem"/>
+                            <div class="text-center p-4">
+                                <h5>{{$equipe->nom}}</h5>
+                                <span>{{$equipe->fonction}}</span>
+                            </div>
+                            <div class="team-text text-center bg-white p-4">
+                                <h5>{{$equipe->nom}}</h5>
+                                <p>{{$equipe->fonction}}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -262,7 +288,7 @@
                         @foreach($temoignages as $temoignage)
                             <div class="testimonial-item text-center">
                                 <img class="img-fluid rounded mx-auto mb-4" src="{{asset(env('TEMOIGNAGE_ASSET').'/'.$temoignage->photo)}}" alt=""/>
-                                <p class="fs-5">{{$temoignage->description}}</p>
+                                <p class="fs-5">{!! $temoignage->description !!}</p>
                                 <h5>{{$temoignage->nom}}</h5>
                             </div>
                         @endforeach
@@ -296,13 +322,10 @@
                                         <img class="d-block w-100 px-3  mb-3" src="{{asset(env('PARTENAIRE_ASSET').'/'.$partenaire->image)}}" alt="">
                                         <h4 class="text-center">{{$partenaire->titre}}</h4>
                                     </div>
-                                    <div class="col-6 col-lg-2  align-self-center">
-                                        <img class="d-block w-100 px-3  mb-3" src="{{asset(env('PARTENAIRE_ASSET').'/'.$partenaire->image)}}" alt="">
-                                        <h4 class="text-center">{{$partenaire->titre}}</h4>
-                                    </div>
                                 </div>
                             </div>
                             @endforeach
+
                         </div>
 
                         <div class="w-100 px-3 text-center mt-4">

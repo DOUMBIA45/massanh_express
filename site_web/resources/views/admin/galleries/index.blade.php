@@ -89,7 +89,7 @@
                         <input type="hidden" name="type" value="photo">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-danger modal_close">Fermer</button>
                         <button type="submit" id="UploadPhoto" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-danger modal_close">Fermer</button>
                         <button type="submit" id="UploadVideo" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
@@ -131,5 +131,18 @@
 @endsection
 
 @push('script')
+    <script>
+        $(document).ready(function (){
+            $('.modal_close').click((e)=>{
+                e.preventDefault()
+                $('#modal_ajouter_photo').modal('hide')
+            })
+
+            $('.modal_close').click((e)=>{
+                e.preventDefault()
+                $('#modal_ajouter_video').modal('hide')
+            })
+        });
+    </script>
     @include('ajax.admin.gallerie')
 @endpush

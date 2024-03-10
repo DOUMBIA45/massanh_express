@@ -15,6 +15,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/apropos',[AdminController::class,'apropos'])->name("admin.apropos");
     Route::post('admin/updateApropos',[AdminController::class,'updateApropos'])->name("admin.updateApropos");
 
+    Route::get('admin/statistiques',[AdminController::class,'statistiques'])->name("admin.statistiques");
+    Route::post('admin/updatePopularity',[AdminController::class,'updatePopularity'])->name("admin.updatePopularity");
+
     ////////////////////// gallerie
     Route::get('admin/galleries',[AdminController::class,'galleries'])->name('admin.galleries');
     Route::post('admin/storeGallerie',[AdminController::class,'storeGallerie'])->name('admin.storeGallerie');

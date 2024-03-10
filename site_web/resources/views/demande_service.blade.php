@@ -6,12 +6,14 @@
 @section('content')
     @include('layout.head_start')
     <!-- Appointment Start -->
-    <div class="container appointment my-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container  my-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-6 text-white mb-5">{{$services->titre}}</h1>
-                    <p class="text-white mb-5">{!! $services->description !!}</p>
+                    <h1 class="display-6  mb-5">{{$services->titre}}</h1>
+                    <div class="text-white mb-5">
+                        {!! $services->description !!}
+                    </div>
                     <div class="bg-white rounded p-3">
                         <div class="d-flex align-items-center bg-primary rounded p-3">
                             <img class="flex-shrink-0 rounded-circle me-3" src="{{asset('asset/img/profile.jpg')}}" alt=""/>
@@ -20,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="bg-white rounded p-5">
+                    <div class="appointment rounded p-5">
                         <form>
                             <input type="hidden" name="service_id" value="{{$services->id}}">
                             <div class="row g-3">
@@ -34,6 +36,23 @@
                                     <div class="form-floating">
                                         <input type="text" class="form-control"  placeholder="Prénoms" name="prenoms"/>
                                         <label for="gname">Prénoms</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <select class="form-control" name="type_entreprise">
+                                            <option value="A">Type de structure</option>
+                                            <option value="Entreprise">Entreprise</option>
+                                            <option value="Association">Association</option>
+                                            <option value="personnel">personnel</option>
+                                            <option value="ONG">ONG</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control"  placeholder="Nom de la structure" name="nom_structure"/>
+                                        <label for="gname">Nom de la structure</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -67,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit" id="DemanderService"><b>Demander le service</b></button>
+                                    <button class="btn btn-dark py-3 px-5" type="submit" id="DemanderService"><b>Demander le service</b></button>
                                 </div>
                             </div>
                         </form>

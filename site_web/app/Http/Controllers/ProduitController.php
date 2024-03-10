@@ -8,8 +8,7 @@ use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class ProduitController extends Controller
-{
+class ProduitController extends Controller{
     public function listeProduits(){
         $title = 'Liste des produits';
         $categories = Categorie::with('produit')->get();
@@ -44,6 +43,8 @@ class ProduitController extends Controller
     }
 
     public function storeCommande(Request $request){
+        $ref = '#'.Str::random(4).''.rand( 100, 999 );
+        $produit = Produit::where('id',$request->produit_id)->first();
         $commande = new Commande();
         $commande->produit_id = $request->produit_id;
         $commande->qty = $request->qty;
@@ -53,10 +54,24 @@ class ProduitController extends Controller
         $commande->telephone = $request->telephone;
         $commande->ville = $request->ville;
         $commande->adresse = $request->adresse;
-        $commande->ref_commande ='#'.Str::random(4).''.rand( 100, 999 );
+        $commande->ref_commande = $ref;
         $commande->status = 'Soumis';
-        $commande->save();
-        return response()->json(['code'=>200]);
+        $save = $commande->save();
+        $fullName = $request->nom.' '.$request->prenoms;
+        if ($save){
+            sendEmail(
+                $request->email,
+                $ref, $fullName,
+                $request->ville,
+                $request->email,
+                $request->telephone,
+                $produit->image_prod,
+                $produit->prix,
+                $produit->description,
+                $produit->nom_produit,$request->qty);
+            return response()->json(['code'=>200]);
+        }
+
     }
 }
 

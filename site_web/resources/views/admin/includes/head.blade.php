@@ -22,3 +22,4 @@
 <link rel="stylesheet" href="{{asset('asset_admin/css/components.css')}}">
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>

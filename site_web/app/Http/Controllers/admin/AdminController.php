@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Apropo;
 use App\Models\Categorie;
 use App\Models\Contact;
+use App\Models\DemandeService;
 use App\Models\Gallerie;
 use App\Models\Partenaire;
+use App\Models\Popularity;
+use App\Models\Rdv;
 use App\Models\Temoignage;
 use Illuminate\Http\Request;
 
@@ -15,7 +18,36 @@ class AdminController extends Controller
 {
     public function index(){
         $categories = Categorie::with('produit')->get();
-        return view('admin.dashboard',['categories'=>$categories]);
+        $demandes = DemandeService::with('service')->limit(12)->orderByDesc('id')->get();
+        $popularites = Popularity::orderByDesc('id')->first();
+        $prise_rdv = Rdv::limit(12)->orderByDesc('id')->get();
+        return view('admin.dashboard',[
+            'categories'=>$categories,
+            'demandes'=>$demandes,
+            'prise_rdv'=>$prise_rdv,
+            'popularites'=>$popularites,
+            ]);
+    }
+
+    public function statistiques(){
+        $categories = Categorie::with('produit')->get();
+        $popularites = Popularity::orderByDesc('id')->first();
+        return view('admin.statistique',[
+            'categories'=>$categories,
+            'popularites'=>$popularites,
+        ]);
+    }
+    public function updatePopularity(Request $request){
+        $formData = $request->all();
+        $update = Popularity::where('id',$formData['id'])->update([
+            'client_satisfaits'=>$formData['client_satisfaits'],
+            'projet_realises'=>$formData['projet_realises'],
+            'follower_acebook'=>$formData['follower_acebook'],
+            'abonne_youtube'=>$formData['abonne_youtube'],
+        ]);
+        if ($update){
+            return response()->json(['code'=>200]);
+        }
     }
 
     public function contact(){
@@ -62,7 +94,7 @@ class AdminController extends Controller
         $formData = $request->all();
         $gallerie = new Gallerie();
         $gallerie->type = $formData['type'];
-        $gallerie->media = UploadeFiles($formData['image'],'assets/img/galleries',671,480);
+        $gallerie->media = UploadeFiles($formData['image'],'assets/img/galleries',626,417);
         $gallerie->save();
         return response()->json(['code'=>200]);
     }

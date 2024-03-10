@@ -25,6 +25,7 @@ use App\Http\Controllers\HomePageController;
 Route::get('/', [HomePageController::class, 'HomePage'])->name('HomePage');
 Route::get('/actualite', [HomePageController::class, 'actualite'])->name('actualite');
 Route::get('/about', [HomePageController::class, 'about'])->name('about');
+Route::get('/galleries', [HomePageController::class, 'galleries'])->name('galleries');
 Route::get('/contact', [HomePageController::class, 'contact'])->name('contact');
 
 Route::post('/addContact', [HomePageController::class,'addContact'])->name('addContact');

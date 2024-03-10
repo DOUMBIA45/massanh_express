@@ -34,13 +34,13 @@
         <a class="nav-link" href="{{route('admin.apropos')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>A propos</b></span></a>
     </li>
     <li>
+        <a class="nav-link" href="{{route('admin.statistiques')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Statistiques</b></span></a>
+    </li>
+    <li>
         <a class="nav-link" href="{{route('admin.equipe')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Equipe</b></span></a>
     </li>
     <li>
         <a class="nav-link" href="{{route('admin.galleries')}}?token={{\Str::random(100)}}"><i class="fa fa-users"></i> <span><b>Gallérie(Vidéos/Images)</b></span></a>
-    </li>
-    <li>
-        <a class="nav-link" href="{{route('admin.priseRDV')}}?token={{\Str::random(100)}}"><i class="fa fa-times-circle"></i> <span><b>Prise de rdv</b></span></a>
     </li>
     <li>
         <a class="nav-link" href="{{route('admin.temoignages')}}?token={{\Str::random(100)}}"><i class="fa fa-teeth"></i> <span><b>Témoignages</b></span></a>

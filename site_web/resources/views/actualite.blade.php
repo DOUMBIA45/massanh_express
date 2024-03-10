@@ -20,23 +20,58 @@
                                 <img src="{{asset(env('ACTUALITE_ASSET').'/'.$actualite->image)}}" class="img-fluid w-100 rounded-top" alt="Image" style="height: 260px">
                             </div>
                             <div class="packages-content bg-light">
-                                <div class="p-4 pb-0">
-                                    <p class="mb-4">{!! $actualite->description !!}</p>
+                                <div class="p-2 pb-0">
+                                    <p class="mb-4">{!! substr($actualite->description,0,250) !!} ....</p>
                                 </div>
                                 <div class="row bg-primary rounded-bottom mx-0">
                                     <div class="col-6 text-start px-0">
 
                                     </div>
                                     <div class="col-6 text-end px-0">
-                                        <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
+                                        <button type="button" class="btn text-white py-2 px-4 modal_actualite">Voir plus</button>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal{{$actualite->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel"><b>Détails d'actualité</b></h5>
+                                                    <button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {!! $actualite->description !!}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal"><i class="fa fa-close"></i> Fermer</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 @endforeach
             </div>
         </div>
     </div>
     <!-- Packages End -->
+    @push("script")
+        <script>
+            $(document).ready(()=>{
+                $('.modal_actualite').click(function (e){
+                    e.preventDefault()
+                    $('#exampleModal{{$actualite->id}}').modal('show')
+                })
+
+                $('.close_modal').click(function (e){
+                    e.preventDefault()
+                    $('#exampleModal{{$actualite->id}}').modal('hide')
+                })
+            })
+        </script>
+    @endpush
 @endsection
+

@@ -9,8 +9,10 @@ use App\Models\Categorie;
 use App\Models\Contact;
 use App\Models\DemandeService;
 use App\Models\Equipe;
+use App\Models\Gallerie;
 use App\Models\Newsletter;
 use App\Models\Partenaire;
+use App\Models\Popularity;
 use App\Models\Rdv;
 use App\Models\Realisation;
 use App\Models\Service;
@@ -21,17 +23,21 @@ use function Symfony\Component\String\s;
 class HomePageController extends Controller{
 
     public function HomePage(){
-        $services = Service::orderBy('id','asc')->get();
+        $services = Service::orderBy('id','desc')->limit(4)->get();
         $categories = Categorie::orderBy('id','asc')->get();
         $aprpos = Apropo::orderBy('id','asc')->first();
         $partenaires = Partenaire::orderBy('id','asc')->get();
         $temoignages = Temoignage::orderBy('id','asc')->get();
+        $populairties = Popularity::orderBy('id','asc')->first();
+        $equipes = Equipe::orderBy('id','asc')->get();
         return view('welcome',[
             'services'=>$services,
             'categories'=>$categories,
             'aprpos'=>$aprpos,
             'partenaires'=>$partenaires,
             'temoignages'=>$temoignages,
+            'populairties'=>$populairties,
+            'equipes'=>$equipes,
         ]);
     }
 
@@ -41,8 +47,9 @@ class HomePageController extends Controller{
             return response()->json(['code'=>301]);
         }else{
             $rdv = new Rdv();
-            $rdv->fullName = $request['fullName'];
+            $rdv->fullName = $request['nom'].' '.$request['prenoms'];
             $rdv->type_entreprise = $request['type_entreprise'];
+            $rdv->nom_structure = $request['nom_structure'];
             $rdv->email = $request['email'];
             $rdv->telephone = $request['telephone'];
             $rdv->date_rdv = $request['date_rdv'];
@@ -103,6 +110,8 @@ class HomePageController extends Controller{
         $services->service_id = $request->service_id;
         $services->nom = $request->nom;
         $services->prenoms = $request->prenoms;
+        $services->nom_structure = $request->nom_structure;
+        $services->type_entreprise = $request->type_entreprise;
         $services->email = $request->email;
         $services->telephone = $request->telephone;
         $services->ville = $request->ville;
@@ -112,14 +121,25 @@ class HomePageController extends Controller{
         return response()->json(['code'=>200]);
     }
 
+    public function galleries(){
+        $title = 'Notre page de gallérie';
+        $categories = Categorie::orderBy('id','desc')->get();
+        $videos = Gallerie::where('type','=','video')->orderBy('id','desc')->get();
+        $photos = Gallerie::where('type','=','photo')->orderBy('id','desc')->get();
+
+        return view('galleries',[
+            'title'=>$title,
+            'categories'=>$categories,
+            'photos'=>$photos,
+            'videos'=>$videos,
+        ]);
+    }
     public function about(){
         $title = 'A Propos de nous';
-        $equipes = Equipe::orderBy('id','asc')->get();
         $categories = Categorie::orderBy('id','asc')->get();
         $aprpos = Apropo::orderBy('id','asc')->first();
         return view('about',[
             'title'=>$title,
-            'equipes'=>$equipes,
             'categories'=>$categories,
             'aprpos'=>$aprpos,
         ]);

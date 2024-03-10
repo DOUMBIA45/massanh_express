@@ -10,6 +10,8 @@
             var service_id = $('input[name="service_id"]').val();
             var nom = $('input[name="nom"]').val();
             var prenoms = $('input[name="prenoms"]').val();
+            var nom_structure = $('input[name="nom_structure"]').val();
+            var type_entreprise = $('select[name="type_entreprise"]').val();
             var email = $('input[name="email"]').val();
             var telephone = $('input[name="telephone"]').val();
             var ville = $('input[name="ville"]').val();
@@ -18,7 +20,8 @@
             var csrf_token=$('meta[name="csrf_token"]').attr('content');
             if(nom.length =="" || prenoms.length ==""  ||
                 email.length =="" || telephone.length =="" ||
-                ville.length=='' || adresse.length == '' || description.length ==''){
+                ville.length=='' || adresse.length == '' ||
+                description.length =='' || nom_structure.length =="" || type_entreprise =='A'){
                 $('#errorModal').modal('show')
                 $('.errorMessage').text('Désolé, ces champs sont réquis!!')
                 $("#DemanderService").empty().append('<i class="fas fa-repeat"></i> Réessayer encore');
@@ -33,6 +36,8 @@
                                 service_id:service_id,
                                 nom:nom,
                                 prenoms:prenoms,
+                                nom_structure:nom_structure,
+                                type_entreprise:type_entreprise,
                                 email:email,
                                 telephone:telephone,
                                 ville:ville,

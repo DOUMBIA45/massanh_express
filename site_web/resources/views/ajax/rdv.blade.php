@@ -7,7 +7,9 @@
             e.preventDefault()
             $("#RDV").empty().append('<i class="fa fa-spinner fa-spin"></i> Connexion en cours...');
             $("#RDV").prop('disabled', false);
-            var fullName = $('input[name="fullName"]').val();
+            var nom = $('input[name="nom"]').val();
+            var prenoms = $('input[name="prenoms"]').val();
+            var nom_structure = $('input[name="nom_structure"]').val();
             var type_entreprise = $('select[name="type_entreprise"]').val();
             var email = $('input[name="email"]').val();
             var telephone = $('input[name="telephone"]').val();
@@ -15,7 +17,8 @@
             var heure_rdv = $('input[name="heure_rdv"]').val();
             var message = $('textarea[name="message"]').val();
             var csrf_token=$('meta[name="csrf_token"]').attr('content');
-            if(fullName.length =="" || type_entreprise =="A"  ||
+            if(nom.length =="" || prenoms.length=='' ||
+                nom_structure.length=='' || type_entreprise =="A"  ||
                 email.length =="" || telephone.length =="" ||
                 date_rdv.length=='' || heure_rdv.length == '' || message.length ==''){
                 $('#errorModal').modal('show')
@@ -29,7 +32,9 @@
                             type:'POST',
                             url:"{{route('addRdv')}}",
                             data:{
-                                fullName:fullName,
+                                nom:nom,
+                                prenoms:prenoms,
+                                nom_structure:nom_structure,
                                 type_entreprise:type_entreprise,
                                 email:email,
                                 telephone:telephone,
@@ -43,14 +48,14 @@
                                 console.log(data)
                                 if (data.code == 200){
                                     $('#successModal').modal('show')
-                                    $('.succesMessage').text('Fécilitation '+fullName+', votre prise de rdv  a été soumis avec succès')
+                                    $('.succesMessage').text('Fécilitation '+nom+' '+prenoms+', votre prise de rdv  a été soumis avec succès')
                                     setTimeout(function (){
                                         window.location.reload()
                                     },2000);
                                 }
                                 if (data.code == 301){
                                     $('#errorModal').modal('show')
-                                    $('.errorMessage').text('Désolé, '+fullName+' vous avez déjà un rdv prévu le '+date_rdv)
+                                    $('.errorMessage').text('Désolé, '+nom+' '+prenoms+' vous avez déjà un rdv prévu le '+date_rdv)
                                     $("#RDV").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
                                     $("#RDV").prop('disabled', false);
                                 }
