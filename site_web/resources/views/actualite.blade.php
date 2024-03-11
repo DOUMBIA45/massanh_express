@@ -28,7 +28,7 @@
 
                                     </div>
                                     <div class="col-6 text-end px-0">
-                                        <button type="button" class="btn text-white py-2 px-4 modal_actualite">Voir plus</button>
+                                        <button type="button" class="btn text-white py-2 px-4 modal_actualite{{$actualite->id}}">Voir plus</button>
                                     </div>
                                     <div class="modal fade" id="exampleModal{{$actualite->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -43,7 +43,7 @@
                                                     {!! $actualite->description !!}
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal"><i class="fa fa-close"></i> Fermer</button>
+                                                    <button type="button" class="btn btn-danger close_modal{{$actualite->id}}" data-dismiss="modal"><i class="fa fa-close"></i> Fermer</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +52,6 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
             </div>
         </div>
@@ -61,15 +60,18 @@
     @push("script")
         <script>
             $(document).ready(()=>{
-                $('.modal_actualite').click(function (e){
+                @foreach($actualites as $actualite)
+                $('.modal_actualite{{$actualite->id}}').click(function (e){
                     e.preventDefault()
                     $('#exampleModal{{$actualite->id}}').modal('show')
                 })
 
-                $('.close_modal').click(function (e){
+                $('.close_modal{{$actualite->id}}').click(function (e){
                     e.preventDefault()
                     $('#exampleModal{{$actualite->id}}').modal('hide')
                 })
+                @endforeach
+
             })
         </script>
     @endpush

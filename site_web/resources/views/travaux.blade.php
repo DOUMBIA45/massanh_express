@@ -28,8 +28,26 @@
 
                                     </div>
                                     <div class="col-6 text-end px-0">
-                                        <a href="#" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
+                                        <button type="button" class="btn text-white py-2 px-4 modal_actualite{{$realisation->id}}">Voir plus</button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal{{$realisation->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><b>Détails</b></h5>
+                                    <button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {!! $realisation->description !!}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger close_modal{{$realisation->id}}" data-dismiss="modal"><i class="fa fa-close"></i> Fermer</button>
                                 </div>
                             </div>
                         </div>
@@ -39,5 +57,23 @@
             </div>
         </div>
     </div>
+    @push("script")
+        <script>
+            $(document).ready(()=>{
+                @foreach($realisations as $realisation)
+                $('.modal_actualite{{$realisation->id}}').click(function (e){
+                    e.preventDefault()
+                    $('#exampleModal{{$realisation->id}}').modal('show')
+                })
+                $('.close_modal{{$realisation->id}}').click(function (e){
+                    e.preventDefault()
+                    $('#exampleModal{{$realisation->id}}').modal('hide')
+                })
+                @endforeach
+
+
+            })
+        </script>
+    @endpush
     <!-- Packages End -->
 @endsection
