@@ -33,5 +33,7 @@
             <a href="{{route('contact')}}?token={{\Str::random(100)}}" class="nav-item nav-link {{Route::current()->getName() == 'contact' ? 'active':'' }}">Contact</a>
         </div>
     </div>
-    <!--<a href="" class="btn btn-primary px-3 d-none d-lg-block">Get A Quote</a>-->
+    @if(Auth::user() and Auth::user()->is_admin == 'admin')
+        <a href="{{route('admin.dashboard')}}?token={{\Str::random(100)}}" class="btn btn-primary px-3 d-none d-lg-block text-uppercase"><i class="fa fa-dashboard"></i> dashboard</a>
+    @endif
 </nav>

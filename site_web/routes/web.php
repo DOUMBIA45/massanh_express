@@ -40,6 +40,8 @@ Route::post('/addNewLetter', [HomePageController::class,'addNewLetter'])->name('
 Route::get('/services', [HomePageController::class, 'services'])->name('services');
 Route::get('/demande_services', [HomePageController::class, 'demande_services'])->name('demande_services');
 
+Route::get('/Logout', [HomePageController::class, 'Logout'])->name('Logout');
+
 
 Route::get('/listeProduits', [ProduitController::class, 'listeProduits'])->name('listeProduits');
 Route::get('/showPorduct', [ProduitController::class, 'showPorduct'])->name('showPorduct');

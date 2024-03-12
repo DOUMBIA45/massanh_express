@@ -1,5 +1,5 @@
 <div class="sidebar-brand">
-    <a href="/">Massanh Express</a>
+    <a href="/">MASSANANH EXPERTIZ</a>
 </div>
 <div class="sidebar-brand sidebar-brand-sm">
     <a href="/">ME</a>
@@ -49,6 +49,6 @@
         <a class="nav-link" href="{{route('admin.partenaires')}}?token={{\Str::random(100)}}"><i class="fa fa-parking"></i> <span><b>Parténaires</b></span></a>
     </li>
     <li>
-        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-envelope"></i> <span><b>Contact</b></span></a>
+        <a class="nav-link" href="{{route('admin.contact')}}?token={{\Str::random(100)}}"><i class="fa fa-envelope"></i> <span><b>Messsage réçu</b></span></a>
     </li>
 </ul>

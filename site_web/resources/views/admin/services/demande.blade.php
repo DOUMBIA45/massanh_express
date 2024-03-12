@@ -44,7 +44,7 @@
                                             <td><b>{{$produit->ville}}</b></td>
                                             <td><b>{{dateToFrench($produit->created_at)}}</b></td>
                                             <td>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Supprimer produit" data-confirm="Etes-vous sûr ?|Cette action peut être annulée. Voulez-vous continuer ?" data-confirm-yes="deleteProduit({{$produit->id}})"><i class="fas fa-trash"></i></a>
+                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Supprimer produit" data-confirm="Etes-vous sûr ?|Cette action peut être annulée. Voulez-vous continuer ?" data-confirm-yes="deleteDemandeService({{$produit->id}})"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -58,3 +58,6 @@
         </div>
     </section>
 @endsection
+@push('script')
+    @include('ajax.admin.admin')
+@endpush

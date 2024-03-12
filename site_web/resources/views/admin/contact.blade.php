@@ -44,7 +44,7 @@
                                             <td><b>{{$contact->message}}</b></td>
                                             <td><b>{{dateToFrench($contact->created_at)}}</b></td>
                                             <td>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Supprimer produit" data-confirm="Etes-vous sûr ?|Cette action peut être annulée. Voulez-vous continuer ?" data-confirm-yes="deleteProduit({{$contact->id}})"><i class="fas fa-trash"></i></a>
+                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Supprimer produit" data-confirm="Etes-vous sûr ?|Cette action peut être annulée. Voulez-vous continuer ?" data-confirm-yes="deleteMessage({{$contact->id}})"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -58,3 +58,6 @@
         </div>
     </section>
 @endsection
+@push('script')
+    @include('ajax.admin.admin')
+@endpush

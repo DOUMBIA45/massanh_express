@@ -65,5 +65,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/store_update_produits',[ProduitController::class,'store_update_produits'])->name('admin.store_update_produits');
     Route::post('admin/delete_produits',[ProduitController::class,'delete_produits'])->name('admin.delete_produits');
 
+    ////////////////////////////////////////// RDV ///////////////////
+    Route::post('admin/deleterdv',[AdminController::class,'deleterdv'])->name('admin.deleterdv');
+    Route::post('admin/deletedemandeservice',[AdminController::class,'deletedemandeservice'])->name('admin.deletedemandeservice');
+    Route::post('admin/deleteMessage',[AdminController::class,'deleteMessage'])->name('admin.deleteMessage');
+
 });
 

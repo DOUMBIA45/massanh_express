@@ -164,4 +164,25 @@ class AdminController extends Controller
         }
     }
 
+    public function deleterdv(Request $request){
+        $delete = Rdv::where('id',$request->ID)->delete(['id'=>$request->ID]);
+        if ($delete){
+            return response()->json(['code'=>200]);
+        }
+    }
+
+    public function deletedemandeservice(Request $request){
+        $delete = DemandeService::where('id',$request->ID)->delete(['id'=>$request->ID]);
+        if ($delete){
+            return response()->json(['code'=>200]);
+        }
+    }
+
+    public function deleteMessage(Request $request){
+        $delete = Contact::where('id',$request->ID)->delete(['id'=>$request->ID]);
+        if ($delete){
+            return response()->json(['code'=>200]);
+        }
+    }
+
 }

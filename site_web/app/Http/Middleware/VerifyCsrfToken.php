@@ -38,5 +38,8 @@ class VerifyCsrfToken extends Middleware
         'admin/storeTemoignages',
         'admin/deleteTemoignages',
         'admin/updatePopularity',
+        'admin/deleterdv',
+        'admin/deletedemandeservice',
+        'admin/deleteMessage',
     ];
 }

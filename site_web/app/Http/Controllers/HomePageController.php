@@ -18,11 +18,14 @@ use App\Models\Realisation;
 use App\Models\Service;
 use App\Models\Temoignage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use function Symfony\Component\String\s;
 
 class HomePageController extends Controller{
 
     public function HomePage(){
+
         $services = Service::orderBy('id','desc')->limit(4)->get();
         $categories = Categorie::orderBy('id','asc')->get();
         $aprpos = Apropo::orderBy('id','asc')->first();
@@ -178,5 +181,10 @@ class HomePageController extends Controller{
         }
     }
 
+
+    public function Logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 
 }
