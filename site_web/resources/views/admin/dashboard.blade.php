@@ -70,7 +70,7 @@
                     <div class="card-header">
                         <h4>Les 12 dernières demande de services</h4>
                         <div class="card-header-action">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-eye"></i> Voir plus</a>
+                            <a href="{{route('admin.demande_services')}}?token={{\Str::random(100)}}" class="btn btn-primary"><i class="fa fa-eye"></i> Voir plus</a>
                         </div>
                     </div>
                     <div class="card-body p-0">
@@ -110,7 +110,7 @@
                     <div class="card-header">
                         <h4>Les dernières prises de RDV</h4>
                         <div class="card-header-action">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-eye"></i> Voir plus</a>
+                            <a href="{{route('admin.morerdv')}}?token={{\Str::random(100)}}" class="btn btn-primary"><i class="fa fa-eye"></i> Voir plus</a>
                         </div>
                     </div>
                     <div class="card-body p-0">

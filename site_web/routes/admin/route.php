@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/dashboard',[AdminController::class,'index'])->name("admin.dashboard");
+    Route::get('admin/morerdv',[AdminController::class,'morerdv'])->name("admin.morerdv");
 
     Route::get('admin/contact',[AdminController::class,'contact'])->name("admin.contact");
     Route::get('admin/apropos',[AdminController::class,'apropos'])->name("admin.apropos");

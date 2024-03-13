@@ -29,6 +29,14 @@ class AdminController extends Controller
             ]);
     }
 
+    public function morerdv(){
+        $categories = Categorie::with('produit')->get();
+        $prise_rdv = Rdv::orderByDesc('id')->get();
+        return view('admin.more_rdv',[
+            'prise_rdv'=>$prise_rdv,
+            'categories'=>$categories,
+            ]);
+    }
     public function statistiques(){
         $categories = Categorie::with('produit')->get();
         $popularites = Popularity::orderByDesc('id')->first();
@@ -138,7 +146,7 @@ class AdminController extends Controller
     }
 
     public function priseRDV(){
-        $categories = Categorie::with('produit')->get();
+        $categories = Categorie::with('produit')->limit(12)->get();
         return view('admin.priserdv',['categories'=>$categories]);
     }
 

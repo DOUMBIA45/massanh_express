@@ -25,7 +25,6 @@ use function Symfony\Component\String\s;
 class HomePageController extends Controller{
 
     public function HomePage(){
-
         $services = Service::orderBy('id','desc')->limit(4)->get();
         $categories = Categorie::orderBy('id','asc')->get();
         $aprpos = Apropo::orderBy('id','asc')->first();
