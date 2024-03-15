@@ -44,18 +44,22 @@
     <div class="container">
         <div class="portfolio-menu mt-2 mb-4">
             <ul>
-                <li class="btn btn-outline-dark active" data-filter="*"><b>Tous les médias</b></li>
-                <li class="btn btn-outline-dark" data-filter=".photo"><b>Gallérie photo</b></li>
-                <li class="btn btn-outline-dark" data-filter=".video"><b>Nos vidéos</b></li>
+                @foreach($albums as $key => $album)
+                    <li class="btn btn-outline-dark {{$key == 0 ? 'active' : ""}}" data-filter=".photo{{$album->id}}"><b>{{$album->album}}</b></li>
+                @endforeach
             </ul>
         </div>
         <div class="portfolio-item row">
-            @foreach($photos as $photo)
-                <div class="item photo col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="{{'assets/img/galleries/'.$photo->media}}" class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid" src="{{asset('assets/img/galleries/'.$photo->media)}}" alt="">
-                    </a>
-                </div>
+            @foreach($albums as $album)
+                @foreach($album->photo as $photo)
+                    @if($album->id == $photo->album_id)
+                        <div class="item photo{{$photo->album_id}} col-lg-3 col-md-4 col-6 col-sm">
+                            <a href="{{'assets/img/galleries/'.$photo->media}}" class="fancylight popup-btn" data-fancybox-group="light">
+                                <img class="img-fluid" src="{{asset('assets/img/galleries/'.$photo->media)}}" alt="">
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
             @endforeach
             @foreach($videos as $video)
                     <div class="item video col-lg-3 col-md-4 col-6 col-sm">

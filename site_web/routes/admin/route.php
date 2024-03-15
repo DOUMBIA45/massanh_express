@@ -21,6 +21,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     ////////////////////// gallerie
     Route::get('admin/galleries',[AdminController::class,'galleries'])->name('admin.galleries');
+    Route::get('admin/albums_photo',[AdminController::class,'albums_photo'])->name('admin.albums_photo');
     Route::post('admin/storeGallerie',[AdminController::class,'storeGallerie'])->name('admin.storeGallerie');
     Route::post('admin/storeGallerieVideo',[AdminController::class,'storeGallerieVideo'])->name('admin.storeGallerieVideo');
     Route::post('admin/deleteGalleries',[AdminController::class,'deleteGalleries'])->name('admin.deleteGalleries');

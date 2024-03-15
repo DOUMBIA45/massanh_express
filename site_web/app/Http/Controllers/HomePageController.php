@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Actualite;
+use App\Models\Album;
 use App\Models\Apropo;
 use App\Models\Categorie;
 use App\Models\Contact;
@@ -128,12 +129,13 @@ class HomePageController extends Controller{
         $categories = Categorie::orderBy('id','desc')->get();
         $videos = Gallerie::where('type','=','video')->orderBy('id','desc')->get();
         $photos = Gallerie::where('type','=','photo')->orderBy('id','desc')->get();
-
+        $albums = Album::with('photo')->orderBy('id','desc')->get();
         return view('galleries',[
             'title'=>$title,
             'categories'=>$categories,
             'photos'=>$photos,
             'videos'=>$videos,
+            'albums'=>$albums,
         ]);
     }
     public function about(){

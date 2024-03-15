@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use App\Models\Apropo;
 use App\Models\Categorie;
 use App\Models\Contact;
@@ -91,9 +92,20 @@ class AdminController extends Controller
 
     public function galleries(){
         $categories= Categorie::all();
-        $galleries = Gallerie::orderByDesc('id')->get();
+        $albums = Album::with('photo')->orderByDesc('id')->get();
         return view('admin.galleries.index',[
             'categories'=>$categories,
+            'albums'=>$albums,
+        ]);
+    }
+
+    public function albums_photo(){
+        $categories= Categorie::all();
+        $albums = Album::where('id',$_GET['album_id'])->orderByDesc('id')->first();
+        $galleries = Gallerie::with('albums')->where('album_id',$_GET['album_id'])->orderByDesc('id')->get();
+        return view('admin.galleries.photo_albums',[
+            'categories'=>$categories,
+            'albums'=>$albums,
             'galleries'=>$galleries,
         ]);
     }
@@ -102,17 +114,26 @@ class AdminController extends Controller
         $formData = $request->all();
         $gallerie = new Gallerie();
         $gallerie->type = $formData['type'];
+        $gallerie->album_id = $formData['album_id'];
         $gallerie->media = UploadeFiles($formData['image'],'assets/img/galleries',626,417);
         $gallerie->save();
         return response()->json(['code'=>200]);
     }
     public function storeGallerieVideo(Request $request){
         $formData = $request->all();
-        $gallerie = new Gallerie();
-        $gallerie->type = 'video';
-        $gallerie->media = $formData['link'];
-        $gallerie->save();
-        return response()->json(['code'=>200]);
+        $existe = Album::where('album',$formData['album'])->get();
+        if (count($existe)){
+            return response()->json([
+                'message'=>'existe',
+                'code'=>301
+            ]);
+        }else{
+            $gallerie = new Album();
+            $gallerie->album = $formData['album'];
+            $gallerie->save();
+            return response()->json(['code'=>200]);
+        }
+
     }
 
     public function deleteGalleries(Request $request){

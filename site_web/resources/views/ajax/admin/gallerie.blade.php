@@ -26,6 +26,7 @@
             $("#UploadPhoto").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
             $("#UploadPhoto").prop('disabled', false);
             var type = $('input[name="type"]').val();
+            var album_id = $('input[name="album_id"]').val();
             var image_empty = $('input[name="image"]').val();
             var image = $('#image')[0].files[0];
 
@@ -49,6 +50,7 @@
                 var formData = new FormData();
                 formData.append("type",type);
                 formData.append("image",image);
+                formData.append("album_id",album_id);
                 $.ajax({
                     url: '{{route('admin.storeGallerie')}}',
                     method: 'POST',
@@ -85,9 +87,8 @@
             e.preventDefault()
             $("#UploadVideo").empty().append('<i class="fa fa-spinner fa-spin"></i> En cours d\'envoi...');
             $("#UploadVideo").prop('disabled', false);
-            var link = $('input[name="link"]').val();
-            var type = $('input[name="type"]').val();
-            if(link.length ==''){
+            var album = $('input[name="album"]').val();
+            if(album.length ==''){
                 $('#modal_ajouter_video').modal('hide')
                 $('#errorModal').modal('show')
                 $('.errorMessage').text('Désolé, tous ce champs est réquis')
@@ -95,8 +96,7 @@
                 $("#UploadVideo").prop('disabled', false);
             }else{
                 var formData = new FormData();
-                formData.append("link",link);
-                formData.append("type",type);
+                formData.append("album",album);
                 $.ajax({
                     url: '{{route('admin.storeGallerieVideo')}}',
                     method: 'POST',
@@ -116,9 +116,11 @@
                         }
 
                         if (data.code == 301){
-                            $('#modal_service').modal('hide')
+                            $('#modal_ajouter_video').modal('hide')
                             $('#errorModal').modal('show')
-                            $('.errorMessage').text('Désolé, cet nom existe déjà')
+                            $('.errorMessage').text('Désolé, cet album existe déjà')
+                            $("#UploadVideo").empty().append('<i class="fa fa-repeat"></i> Réessayer encore');
+                            $("#UploadVideo").prop('disabled', false);
                             setTimeout(function (){
                                 //window.location.reload()
                             },4000);
